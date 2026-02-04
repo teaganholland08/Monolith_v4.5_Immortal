@@ -20,6 +20,7 @@ try:
     from System.Core.observability_engine import get_observability
     from System.Core.self_healing_controller import get_healer
     from System.Core.memory_engine import get_memory
+    from System.Core.governance_engine import get_governance
     CORE_LAYERS_ACTIVE = True
 except ImportError:
     CORE_LAYERS_ACTIVE = False
@@ -64,11 +65,13 @@ class MonolithGraph:
             self.observability = get_observability()
             self.healer = get_healer()
             self.memory = get_memory("master_assistant")
-            self._log("INIT", "✅ Core Layers Active: Observability, Self-Healing, Memory")
+            self.governance = get_governance()
+            self._log("INIT", "✅ Core Layers Active: Observability, Self-Healing, Memory, Governance")
         else:
             self.observability = None
             self.healer = None
             self.memory = None
+            self.governance = None
             
         self.state = AgentState.IDLE
         self.context = {}  # Shared Memory (Blackboard Pattern)
