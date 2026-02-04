@@ -1,0 +1,2 @@
+{"agent_name": "investment_agent", "action_type": "execute_trade", "timestamp": "2026-02-04T01:38:12.247044", "inputs": {"symbol": "BTC", "amount": 5000}, "outputs": {"status": "pending_approval"}, "human_approved": false, "risk_level": "HIGH", "compliance_status": "REQUIRES_REVIEW", "metadata": {}}
+{"agent_name": "backup_agent", "action_type": "create_snapshot", "timestamp": "2026-02-04T01:38:12.249544", "inputs": {}, "outputs": {"snapshot_id": "snap_123", "files": 22}, "human_approved": false, "risk_level": "LOW", "compliance_status": "COMPLIANT", "metadata": {}}

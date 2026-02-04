@@ -1,11 +1,25 @@
 {
   "agent": "backup",
-  "message": "Backups: 0 | Latest: NONE",
-  "status": "RED",
+  "message": "Backups: 0 | Snapshots: 4 | Latest: NONE",
+  "status": "GREEN",
   "backup_status": {
     "count": 0,
+    "snapshot_count": 4,
     "latest": null,
+    "latest_age_hours": null,
     "total_size_mb": 0
   },
-  "timestamp": "2026-02-04T01:02:47.594515"
+  "integrity": {
+    "verified": true,
+    "total_files": 22,
+    "corrupted": []
+  },
+  "snapshot_result": {
+    "success": true,
+    "name": "snapshot_20260204_012940",
+    "files": 22
+  },
+  "cleaned_snapshots": 0,
+  "mdisc_queue_exists": false,
+  "timestamp": "2026-02-04T01:29:41.146463"
 }

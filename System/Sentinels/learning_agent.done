@@ -1,0 +1,63 @@
+{
+  "agent": "learning_agent",
+  "message": "Skills: 6.8/10 | Courses: 2 active, 0 done",
+  "status": "RED",
+  "report": {
+    "active_courses": 2,
+    "completed_courses": 0,
+    "average_course_progress": 32.5,
+    "learning_hours_this_month": 12,
+    "average_skill_level": 6.8,
+    "skill_gaps": [
+      {
+        "skill": "Python",
+        "gap": 2
+      },
+      {
+        "skill": "AI/ML",
+        "gap": 3
+      },
+      {
+        "skill": "Cryptography",
+        "gap": 4
+      },
+      {
+        "skill": "System Design",
+        "gap": 3
+      }
+    ]
+  },
+  "suggestions": [
+    {
+      "skill": "Python",
+      "gap": 2,
+      "recommended_courses": [
+        "Advanced Python Patterns - Udemy",
+        "Python for Data Science - Coursera",
+        "Async Programming Masterclass - Real Python"
+      ],
+      "priority": "MEDIUM"
+    },
+    {
+      "skill": "AI/ML",
+      "gap": 3,
+      "recommended_courses": [
+        "Deep Learning Specialization - Coursera",
+        "MLOps Engineering - AWS Training",
+        "Advanced LLM Applications - Fast.ai"
+      ],
+      "priority": "HIGH"
+    },
+    {
+      "skill": "Cryptography",
+      "gap": 4,
+      "recommended_courses": [
+        "Post-Quantum Cryptography - edX",
+        "Applied Cryptography - Stanford Online",
+        "Zero-Knowledge Proofs - MIT OCW"
+      ],
+      "priority": "HIGH"
+    }
+  ],
+  "timestamp": "2026-02-04T01:38:29.254004"
+}

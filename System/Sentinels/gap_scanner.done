@@ -39,25 +39,25 @@
   "todos": [
     {
       "file": "gap_scanner.py",
-      "line": 71,
+      "line": 72,
       "text": "\"\"\"Find TODO/FIXME comments in codebase\"\"\""
     },
     {
       "file": "gap_scanner.py",
-      "line": 77,
+      "line": 78,
       "text": "if 'TODO' in line or 'FIXME' in line or 'PLACEHOLDER' in line:"
     },
     {
       "file": "gap_scanner.py",
-      "line": 99,
+      "line": 100,
       "text": "message = f\"Gaps: {len(gaps)} | Updates: {len(updates)} | Opportunities: {len(op"
     },
     {
       "file": "master_assistant.py",
-      "line": 77,
+      "line": 113,
       "text": "# TODO: Hook into Director Schedule"
     }
   ],
   "high_priority_count": 2,
-  "timestamp": "2026-02-04T01:03:02.028033"
+  "timestamp": "2026-02-04T02:14:01.192737"
 }

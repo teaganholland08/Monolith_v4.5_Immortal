@@ -1,0 +1,43 @@
+{
+  "agent": "predictive_concierge",
+  "message": "Recovery: 84% | Predictions: 1",
+  "status": "GREEN",
+  "biometrics": {
+    "recovery_score": 84,
+    "hrv_avg": 62,
+    "resting_hr": 56,
+    "body_temp_delta": -0.08,
+    "sleep_hours": 8.2,
+    "deep_sleep_pct": 15,
+    "glucose_current": 85,
+    "focus_score": 81,
+    "stress_level": 9
+  },
+  "predictions": [
+    {
+      "type": "POOR_DEEP_SLEEP",
+      "severity": "MEDIUM",
+      "prediction": "Insufficient deep sleep. Cognitive decline likely.",
+      "intervention": "No caffeine after 2PM, cool bedroom to 67\u00b0F, magnesium."
+    }
+  ],
+  "devices": {
+    "oura": {
+      "connected": true,
+      "last_sync": null
+    },
+    "dexcom": {
+      "connected": false,
+      "last_sync": null
+    },
+    "vivoo": {
+      "connected": false,
+      "last_sync": null
+    },
+    "neurable": {
+      "connected": true,
+      "last_sync": null
+    }
+  },
+  "timestamp": "2026-02-04T01:31:27.070208"
+}

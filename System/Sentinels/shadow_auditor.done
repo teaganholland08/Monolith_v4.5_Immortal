@@ -1,20 +1,13 @@
 {
   "agent": "shadow_auditor",
-  "message": "Compliance: YELLOW | Privacy: PASSED (UUID Masking Active) | FLAGS: 1 items require review.",
-  "status": "YELLOW",
+  "message": "Pillars: SECURE | Compliance: SINGAPORE_MGF_2026 | Hallucination Detection: ACTIVE",
+  "status": "GREEN",
   "compliance": {
-    "privacy_status": "PASSED",
-    "uuid_masking": true,
-    "pqc_encryption": true,
-    "gdpr_compliance": true,
-    "bc_privacy_act": true
+    "pqc_active": true,
+    "signature_verification": "ACTIVE",
+    "hallucination_prevention": "ENABLED",
+    "compliance_framework": "SINGAPORE_MGF_2026"
   },
-  "flags": [
-    {
-      "item": "API Key Rotation",
-      "status": "DUE",
-      "priority": "MEDIUM"
-    }
-  ],
-  "timestamp": "2026-02-04T01:02:47.218507"
+  "verified_actions": 5,
+  "timestamp": "2026-02-04T01:54:32.271622"
 }

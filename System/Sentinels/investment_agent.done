@@ -1,7 +1,7 @@
 {
   "agent": "investment_agent",
   "status": "GREEN",
-  "message": "Portfolio: $74,091.55 | Analyzed 1 Assets",
+  "message": "Portfolio: $74,500.25 | AI Sentiment: Bullish (0.85)",
   "market_data": {
     "BTC-USD": {
       "price": 98500.0,
@@ -20,11 +20,11 @@
     {
       "asset": "BTC",
       "price": 98500.0,
-      "monte_carlo_win_prob": 0.5,
-      "expected_roi": 0.0,
-      "status": "DENIED",
-      "reason": "Risk Score Too Low"
+      "monte_carlo_win": "0.55",
+      "ai_sentiment": 0.85,
+      "status": "APPROVED",
+      "reason": "APPROVED"
     }
   ],
-  "timestamp": "2026-02-04T01:22:45.709402"
+  "timestamp": "2026-02-04T02:09:27.382471"
 }

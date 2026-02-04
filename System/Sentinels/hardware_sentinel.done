@@ -1,0 +1,25 @@
+{
+  "agent": "hardware_sentinel",
+  "message": "Power: 93% | Water: 42L | Drones: ACTIVE",
+  "status": "GREEN",
+  "telemetry": {
+    "EnerVenue_ESV": {
+      "charge": 93,
+      "cycles": 420,
+      "health": "EXCELLENT",
+      "temp": "22C"
+    },
+    "Source_Hydropanels_R3": {
+      "reserves": "42L",
+      "daily_prod": "8.5L",
+      "ph": 7.2,
+      "status": "OPTIMAL"
+    },
+    "Sunflower_Beehive": {
+      "drones": "3/3 READY",
+      "last_patrol": "15m ago",
+      "threat_level": "ZERO"
+    }
+  },
+  "timestamp": "2026-02-04T01:54:31.679078"
+}

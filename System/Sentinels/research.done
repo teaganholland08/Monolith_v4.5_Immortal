@@ -1,33 +1,27 @@
 {
   "agent": "research",
-  "message": "Found 3 news items, 2 papers",
+  "message": "AI Analysis Complete: 3 news items, 2 papers analyzed.",
   "status": "ACTIVE",
-  "news": [
-    {
-      "topic": "BC Tax Law 2026",
-      "impact": "HIGH",
-      "summary": "New small business credits announced"
-    },
-    {
-      "topic": "RTX 5090 Stock",
-      "impact": "MEDIUM",
-      "summary": "Available at Memory Express"
-    },
-    {
-      "topic": "PQC Standards",
-      "impact": "HIGH",
-      "summary": "NIST finalizes Kyber-1024"
-    }
-  ],
+  "model": "llama-3-70b-instruct",
+  "news": {
+    "analysis": "Simulated AI Analysis of: \n        Analyze the",
+    "confidence_score": 0.95,
+    "action_items": [
+      "Review data",
+      "Commit changes"
+    ]
+  },
   "research": [
     {
       "title": "Longevity Biomarkers 2026",
-      "relevance": 0.9
+      "relevance": 0.92,
+      "ai_note": "Critical for Director Pulse"
     },
     {
       "title": "Tax Optimization Strategies",
-      "relevance": 0.85
+      "relevance": 0.88,
+      "ai_note": "Actionable for Tax Shield"
     }
   ],
-  "timestamp": "2026-02-04T01:03:03.486739"
+  "timestamp": "2026-02-04T02:00:36.075765"
 }

@@ -1,0 +1,5 @@
+{"timestamp": "2026-02-04T01:29:35.523170", "type": "INIT", "message": "Observability Engine Started"}
+{"timestamp": "2026-02-04T01:29:35.527044", "type": "TRACE_START", "trace_id": "1770197375527-8687", "name": "demo_operation"}
+{"timestamp": "2026-02-04T01:29:35.627628", "type": "SPAN_END", "trace_id": "1770197375527-8687", "span_id": "1770197375527-5082", "name": "demo_operation", "status": "OK", "latency_ms": 100.57687759399414}
+{"timestamp": "2026-02-04T01:29:35.628141", "type": "TRACE_END", "trace_id": "1770197375527-8687", "name": "demo_operation", "status": "OK", "total_latency_ms": 101.10282897949219, "span_count": 1}
+{"timestamp": "2026-02-04T02:13:50.752549", "type": "INIT", "message": "Observability Engine Started"}

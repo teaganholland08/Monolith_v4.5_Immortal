@@ -1,0 +1,12 @@
+{
+  "agent": "red_team_agent",
+  "message": "Security Probe: GREEN | 0 vulnerabilities found in 4 tests.",
+  "status": "GREEN",
+  "results": {
+    "SQL_INJECTION_SIM": "BLOCKED",
+    "PROMPT_INJECTION_BYPASS": "BLOCKED",
+    "UNAUTH_TREASURY_ACCESS": "BLOCKED",
+    "CIRCUIT_BREAKER_STRESS": "BLOCKED"
+  },
+  "timestamp": "2026-02-04T01:54:31.991829"
+}
