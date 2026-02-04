@@ -70,7 +70,7 @@ def draw_dashboard():
         status_color = COLORS['GREEN'] if status in ["CONNECTED", "ACTIVE", "HUNTING"] else COLORS['WARNING']
         print(f" {status_color}●{COLORS['ENDC']} {name:<25} | {status:<10} | {rate:<10} | {detail}")
 
-    print(f"\n{COLORS['HEADER']} --- FLEET ACTIVITY (48 AGENTS) --- {COLORS['ENDC']}")
+    print(f"\n{COLORS['HEADER']} --- FLEET ACTIVITY (52 AGENTS) --- {COLORS['ENDC']}")
     
     pillars = {
         "WEALTH": ["investment_agent", "defi_yield_agent", "revenue_executor", "capital_allocation"],

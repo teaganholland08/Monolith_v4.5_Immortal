@@ -124,7 +124,7 @@ with cols[2]:
     st.markdown("<div class='metric-value'>OMEGA</div>", unsafe_allow_html=True)
 with cols[3]:
     st.markdown("<div class='metric-label'>Active Agents</div>", unsafe_allow_html=True)
-    st.markdown("<div class='metric-value'>48/48</div>", unsafe_allow_html=True)
+    st.markdown("<div class='metric-value'>52/52</div>", unsafe_allow_html=True)
 
 st.divider()
 
