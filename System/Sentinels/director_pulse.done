@@ -1,17 +1,17 @@
 {
   "agent": "director_pulse",
-  "message": "Status: YELLOW | HRV: 75 | Sleep: 94",
+  "message": "Status: YELLOW | HRV: 80 | Sleep: 88",
   "status": "YELLOW",
   "biometrics": {
-    "hrv": 75,
-    "sleep_score": 94,
+    "hrv": 80,
+    "sleep_score": 88,
     "stress_level": "HIGH",
-    "resting_hr": 55
+    "resting_hr": 58
   },
   "diagnostics": {
     "smart_toilet": {
       "hydration": "NEEDS_WATER",
-      "gut_microbiome_index": 0.91,
+      "gut_microbiome_index": 0.94,
       "metabolic_waste_analysis": "STABLE"
     },
     "vns_status": {
@@ -24,5 +24,5 @@
       "metabolic_health": "EXCELLENT"
     }
   },
-  "timestamp": "2026-02-04T04:25:33.370407"
+  "timestamp": "2026-02-04T04:27:09.324764"
 }
