@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROJECT MONOLITH // UNIFIED</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            color: #e2e8f0;
+            background: #0f172a;
+            overflow-x: hidden;
+        }
+
+        .glass {
+            background: rgba(15, 23, 42, 0.75);
+            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+
+        .glass:hover {
+            border-color: rgba(59, 130, 246, 0.5);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+        }
+
+        .protocol-red .glass {
+            border-color: rgba(239, 68, 68, 0.6);
+            background: rgba(40, 10, 10, 0.9);
+        }
+
+        .no-scroll::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen p-2 md:p-4 flex flex-col relative">
+
+    <header class="flex justify-between items-center mb-4 z-10 animate-fade-in">
+        <div class="glass px-4 py-2 flex items-center gap-3 cursor-pointer" onclick="activateVoice()">
+            <i data-lucide="aperture" id="mic-icon" class="text-blue-500 animate-spin-slow"></i>
+            <div>
+                <h1 class="font-bold tracking-widest text-white">MONOLITH OS</h1>
+                <div class="text-[10px] text-blue-400">UNIFIED ARCHITECTURE</div>
+            </div>
+        </div>
+        <div class="glass px-4 py-2 text-right">
+            <div id="clock" class="font-bold">00:00:00</div>
+            <div id="ip-info" class="text-[10px] text-gray-400">CONNECTING...</div>
+        </div>
+    </header>
+
+    <main class="grid grid-cols-1 lg:grid-cols-12 gap-4 flex-1 z-10">
+
+        <!-- FINANCE MODULE -->
+        <section class="lg:col-span-8 glass p-6 flex flex-col" data-tilt>
+            <div class="flex justify-between mb-4">
+                <div>
+                    <h2 class="text-xs text-gray-400">NET LIQUIDITY</h2>
+                    <div id="balance" class="text-4xl font-bold text-white">$--,--</div>
+                </div>
+                <div class="text-right">
+                    <div id="market-ticker" class="text-xs text-blue-400 font-mono">SYNCING MARKETS...</div>
+                </div>
+            </div>
+            <div class="flex-1 w-full"><canvas id="finChart"></canvas></div>
+            <div id="trade-history" class="mt-2 text-[10px] text-gray-500 font-mono flex gap-4">
+                <!-- Injected via JS -->
+            </div>
+        </section>
+
+        <!-- SYSTEM CORE -->
+        <section class="lg:col-span-4 glass p-4 grid grid-cols-2 gap-2" data-tilt>
+            <div class="col-span-2 flex justify-between border-b border-gray-700 pb-2 mb-2">
+                <span class="text-xs text-gray-400">SYSTEM CORE</span>
+                <span id="boot-time" class="text-[10px] text-gray-500">UP: --:--</span>
+            </div>
+            <div class="relative flex items-center justify-center">
+                <svg class="w-24 h-24 -rotate-90">
+                    <circle cx="48" cy="48" r="40" stroke="#1e293b" stroke-width="6" fill="none" />
+                    <circle id="cpu-ring" cx="48" cy="48" r="40" stroke="#3b82f6" stroke-width="6" fill="none"
+                        stroke-dasharray="251" stroke-dashoffset="251" />
+                </svg>
+                <div class="absolute text-center">
+                    <div id="cpu-val" class="text-xl font-bold">--%</div>
+                    <div class="text-[8px]">CPU</div>
+                </div>
+            </div>
+            <div class="flex flex-col justify-center gap-2">
+                <div>
+                    <div class="flex justify-between text-[10px]"><span>RAM</span><span id="ram-val">--%</span></div>
+                    <div class="h-1 bg-gray-700">
+                        <div id="ram-bar" class="h-full bg-purple-500 w-0"></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="flex justify-between text-[10px]"><span>DSK</span><span id="disk-val">--%</span></div>
+                    <div class="h-1 bg-gray-700">
+                        <div id="disk-bar" class="h-full bg-green-500 w-0"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GLOBAL INTEL TERMINAL -->
+        <section class="lg:col-span-12 glass p-2 flex flex-col h-64" data-tilt>
+            <div class="flex justify-between px-2 border-b border-gray-700 pb-1 mb-1">
+                <span class="text-xs text-blue-400">OMNISCIENT FEED</span>
+                <div class="flex gap-2">
+                    <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                    <span class="w-2 h-2 bg-blue-500 rounded-full animate-pulse delay-75"></span>
+                </div>
+            </div>
+            <div id="terminal" class="flex-1 overflow-y-auto font-mono text-xs p-2 space-y-1 no-scroll">
+                <div class="text-green-500">> Neural Link Active.</div>
+            </div>
+            <input type="text" id="cmd"
+                class="bg-black/30 border-t border-gray-700 p-2 text-xs outline-none text-blue-300"
+                placeholder="ENTER COMMAND..." onkeydown="handleCmd(event)">
+        </section>
+
+    </main>
+
+    <script>
+        lucide.createIcons();
+        const API = "http://127.0.0.1:5000";
+        try { VANTA.NET({ el: "body", color: 0x3b82f6, backgroundColor: 0x0f172a, points: 12, maxDistance: 22 }); } catch (e) { }
+        if (window.innerWidth > 1000) VanillaTilt.init(document.querySelectorAll("[data-tilt]"), { max: 3, glare: true, "max-glare": 0.1 });
+
+        const ctx = document.getElementById('finChart').getContext('2d');
+        const chart = new Chart(ctx, {
+            type: 'line',
+            data: { labels: Array(20).fill(''), datasets: [{ data: Array(20).fill(50), borderColor: '#3b82f6', backgroundColor: 'rgba(59,130,246,0.1)', borderWidth: 2, fill: true, pointRadius: 0 }] },
+            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: false }, scales: { x: { display: false }, y: { display: false } }, animation: false }
+        });
+
+        async function loop() {
+            try {
+                // SYSTEM
+                const sys = await (await fetch(`${API}/api/system`)).json();
+                document.getElementById('cpu-ring').style.strokeDashoffset = 251 - (251 * sys.cpu / 100);
+                document.getElementById('cpu-val').innerText = sys.cpu + "%";
+                document.getElementById('ram-bar').style.width = sys.ram + "%";
+                document.getElementById('disk-bar').style.width = sys.disk + "%";
+                document.getElementById('boot-time').innerText = "UP: " + sys.boot;
+                if (sys.ip) document.getElementById('ip-info').innerText = `${sys.ip.query} [${sys.ip.isp}]`;
+
+                // FINANCE & TRADES
+                const fin = await (await fetch(`${API}/api/finance`)).json();
+                document.getElementById('balance').innerText = fin.balance;
+                if (fin.market) document.getElementById('market-ticker').innerText = fin.market.map(m => `${m.symbol}: ${m.price}`).join(" | ");
+                if (fin.history) {
+                    document.getElementById('trade-history').innerHTML = fin.history.map(t =>
+                        `<span class="${t.result == 'WIN' ? 'text-green-400' : 'text-red-400'}">${t.pair} ${t.type} (${t.result})</span>`
+                    ).join("");
+                }
+
+                // INTEL & PERSONAL (Terminal)
+                const intel = await (await fetch(`${API}/api/intel`)).json();
+                intel.forEach(i => log(`[${i.type}] ${i.src}: ${i.msg}`, "text-slate-400"));
+
+                const pers = await (await fetch(`${API}/api/personal`)).json();
+                pers.forEach(p => log(`[${p.type}] ${p.src}: ${p.msg}`, p.type == 'EMAIL' ? 'text-blue-400' : 'text-green-400'));
+
+                // STATUS (Audit/Scout)
+                const stat = await (await fetch(`${API}/api/status`)).json();
+                stat.audit.forEach(a => { if (!hasLog(a.msg)) log(`[AUDIT] ${a.type}: ${a.msg}`, "text-yellow-500"); });
+                stat.alerts.forEach(a => log(`[SCOUT] ${a.title}: ${a.val}`, "text-red-500 font-bold"));
+
+                // CHART
+                const d = chart.data.datasets[0].data; d.shift(); d.push(sys.cpu); chart.update();
+
+            } catch (e) { }
+        }
+        setInterval(loop, 2000);
+
+        const term = document.getElementById('terminal');
+        const logs = new Set();
+        function hasLog(msg) { return logs.has(msg); }
+        function log(msg, color = "text-gray-400") {
+            if (logs.has(msg)) return;
+            logs.add(msg);
+            const d = document.createElement('div'); d.className = color; d.innerText = msg;
+            term.appendChild(d); term.scrollTop = term.scrollHeight;
+        }
+        function handleCmd(e) {
+            if (e.key === 'Enter') {
+                const cmd = e.target.value; log(`root@monolith:~$ ${cmd}`, "text-white"); e.target.value = "";
+                if (cmd === "red") document.body.classList.add("protocol-red");
+                else if (cmd === "blue") document.body.classList.remove("protocol-red");
+                else fetch(`${API}/execute/${cmd}`);
+            }
+        }
+        setInterval(() => document.getElementById('clock').innerText = new Date().toLocaleTimeString(), 1000);
+    </script>
+</body>
+
+</html>

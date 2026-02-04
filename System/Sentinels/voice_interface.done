@@ -1,0 +1,36 @@
+{
+  "agent": "voice_interface",
+  "message": "Voice ready. 5 commands registered.",
+  "status": "ACTIVE",
+  "commands_available": [
+    "status",
+    "briefing",
+    "lock",
+    "optimize",
+    "vanish"
+  ],
+  "test_responses": [
+    {
+      "command": "What's my status?",
+      "action": "status",
+      "result": {
+        "response": "All systems nominal. 12 agents active. Revenue: $247.82 today."
+      }
+    },
+    {
+      "command": "Run the briefing",
+      "action": "briefing",
+      "result": {
+        "response": "Director Briefing: 3 decisions pending. Health: GREEN. Wealth: +2.3%."
+      }
+    },
+    {
+      "command": "Optimize everything",
+      "action": "optimize",
+      "result": {
+        "response": "Running optimization cycle. Scout found 3 upgrades."
+      }
+    }
+  ],
+  "timestamp": "2026-02-04T01:03:09.422920"
+}

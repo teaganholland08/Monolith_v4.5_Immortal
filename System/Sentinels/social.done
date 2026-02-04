@@ -1,0 +1,16 @@
+{
+  "agent": "social",
+  "message": "Notifications: 6 | Reputation: 8.5/10",
+  "status": "ACTIVE",
+  "notifications": {
+    "email": 3,
+    "linkedin": 1,
+    "github": 2
+  },
+  "reputation": {
+    "github_stars": 47,
+    "linkedin_connections": 500,
+    "reputation_score": 8.5
+  },
+  "timestamp": "2026-02-04T01:03:04.180369"
+}

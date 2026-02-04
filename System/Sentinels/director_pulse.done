@@ -1,0 +1,28 @@
+{
+  "agent": "director_pulse",
+  "message": "Status: GREEN | HRV: 66 | Sleep: 84",
+  "status": "GREEN",
+  "biometrics": {
+    "hrv": 66,
+    "sleep_score": 84,
+    "stress_level": "MODERATE",
+    "resting_hr": 56
+  },
+  "diagnostics": {
+    "smart_toilet": {
+      "hydration": "NEEDS_WATER",
+      "gut_microbiome_index": 0.89,
+      "metabolic_waste_analysis": "STABLE"
+    },
+    "vns_status": {
+      "vagus_nerve_stimulation": "ACTIVE (Optimal Tonus)",
+      "stress_response_reset": "COMPLETE"
+    },
+    "longevity_mirror": {
+      "biological_age": 19,
+      "cardiovascular_score": 92,
+      "metabolic_health": "EXCELLENT"
+    }
+  },
+  "timestamp": "2026-02-04T01:03:01.464853"
+}

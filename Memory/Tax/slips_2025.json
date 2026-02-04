@@ -1,0 +1,19 @@
+[
+  {
+    "type": "T4",
+    "issuer": "Corp X",
+    "income": 85000,
+    "tax_withheld": 18000
+  },
+  {
+    "type": "T5",
+    "issuer": "Wealthsimple",
+    "interest": 1200,
+    "capital_gains": 5400
+  },
+  {
+    "type": "T1135",
+    "status": "REQUIRED",
+    "assets_held": "Global Crypto Vault"
+  }
+]

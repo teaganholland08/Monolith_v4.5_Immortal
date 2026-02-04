@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MONOLITH OMEGA | LIQUID INTERFACE</title>
+    <style>
+        :root {
+            --bg-color: #050505;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --neon-blue: #00f3ff;
+            --neon-red: #ff0055;
+            --neon-green: #00ff9d;
+            --text-muted: rgba(255, 255, 255, 0.6);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', monospace;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background-image:
+                radial-gradient(circle at 10% 20%, rgba(0, 243, 255, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(255, 0, 85, 0.05) 0%, transparent 40%);
+            color: white;
+            min-height: 100vh;
+            /* Allow scrolling on mobile, hidden on desktop if fits */
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        /* --- THE RESPONSIVE MATRIX (CSS GRID AREAS) --- */
+        .dashboard-container {
+            display: grid;
+            width: 100%;
+            max-width: 1800px;
+            margin: 0 auto;
+            padding: 20px;
+            gap: 20px;
+
+            /* DESKTOP LAYOUT (Default) */
+            grid-template-columns: 280px 1fr 320px;
+            grid-template-rows: auto 1fr;
+            grid-template-areas:
+                "header header header"
+                "sidebar main feeds";
+        }
+
+        /* --- THE GLASS CARD --- */
+        .glass {
+            background: var(--glass-bg);
+            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s ease;
+        }
+
+        /* --- ASSIGNING AREAS --- */
+        .header {
+            grid-area: header;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 80px;
+        }
+
+        .sidebar {
+            grid-area: sidebar;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .main-content {
+            grid-area: main;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .feeds {
+            grid-area: feeds;
+            height: 100%;
+            min-height: 300px;
+        }
+
+        /* --- RESPONSIVE TYPOGRAPHY --- */
+        h1 {
+            font-size: clamp(16px, 2vw, 24px);
+            color: var(--neon-blue);
+            text-shadow: 0 0 10px var(--neon-blue);
+            letter-spacing: 2px;
+        }
+
+        .stat-value {
+            font-size: clamp(24px, 3vw, 42px);
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        /* --- ELEMENTS --- */
+        .btn {
+            width: 100%;
+            padding: 15px;
+            margin-top: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .btn:active {
+            background: var(--neon-blue);
+            color: black;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            margin-top: 10px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            transition: width 1s;
+        }
+
+        /* --- ASSET GRID INSIDE MAIN --- */
+        .asset-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            /* Auto-stacking */
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        /* =========================================
+           📱 MEDIA QUERIES (THE MAGIC) 
+           ========================================= */
+
+        /* TABLET MODE (Max Width 1024px) */
+        @media (max-width: 1024px) {
+            .dashboard-container {
+                grid-template-columns: 1fr 1fr;
+                grid-template-areas:
+                    "header header"
+                    "main main"
+                    "sidebar feeds";
+            }
+        }
+
+        /* MOBILE MODE (Max Width 768px) */
+        @media (max-width: 768px) {
+            .dashboard-container {
+                display: flex;
+                /* Switch to vertical stack */
+                flex-direction: column;
+                padding: 10px;
+                gap: 15px;
+            }
+
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+                padding: 15px;
+            }
+
+            .glass:hover {
+                transform: none;
+            }
+
+            /* Disable 3D tilt on mobile to save battery */
+
+            /* Make buttons bigger for thumbs */
+            .btn {
+                padding: 20px;
+                font-size: 16px;
+            }
+
+            /* Hide the "System Log" on super small screens if needed, or keep it at bottom */
+            .feeds {
+                max-height: 200px;
+                overflow-y: auto;
+            }
+        }
+
+        /* --- UTILITY CLASSES (Replaced Inline Styles) --- */
+        .status-dot {
+            color: var(--neon-green);
+        }
+
+        .clock-display {
+            font-size: 16px;
+            font-family: monospace;
+        }
+
+        .btn-lockdown {
+            border-color: var(--neon-red) !important;
+            color: var(--neon-red) !important;
+        }
+
+        .label-sm {
+            font-size: 12px;
+            margin-top: 10px;
+        }
+
+        .progress-active {
+            width: 94%;
+            background: var(--neon-green);
+        }
+
+        .text-neon-blue {
+            color: var(--neon-blue);
+        }
+
+        .meta-info {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .asset-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .asset-lbl {
+            font-size: 12px;
+            color: grey;
+        }
+
+        .asset-val {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .log-display {
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 2;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="dashboard-container">
+
+        <div class="glass header">
+            <div>
+                <span class="status-dot">●</span> ONLINE
+                <h1>MONOLITH OMEGA</h1>
+            </div>
+            <div id="clock" class="clock-display">00:00:00</div>
+        </div>
+
+        <div class="sidebar">
+            <div class="glass">
+                <h3>CONTROLS</h3>
+                <button class="btn" onclick="alert('AGENT DEPLOYED')">DEPLOY HYDRA</button>
+                <button class="btn btn-lockdown" onclick="alert('LOCKDOWN')">🚨 LOCKDOWN</button>
+            </div>
+            <div class="glass">
+                <h3>BIO-METRICS</h3>
+                <h3>BIO-METRICS</h3>
+                <div class="label-sm">RECOVERY</div>
+                <div class="progress-bar">
+                    <div class="progress-fill progress-active"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="glass" id="hydra-card">
+                <div class="glass" id="hydra-card">
+                    <h2 class="text-neon-blue">HYDRA REVENUE</h2>
+                    <div class="stat-value" id="revenue">$142,502.00</div>
+                    <div class="meta-info">
+                        > VECTORS ACTIVE: 12<br>
+                        > LAST PAYOUT: 4 MINS AGO
+                    </div>
+                </div>
+
+                <div class="glass">
+                    <h3>VAULT ASSETS</h3>
+                    <div class="asset-grid">
+                        <h3>VAULT ASSETS</h3>
+                        <div class="asset-grid">
+                            <div class="asset-card">
+                                <div class="asset-lbl">GOLD</div>
+                                <div class="asset-val">42oz</div>
+                            </div>
+                            <div class="asset-card">
+                                <div class="asset-lbl">CRYPTO</div>
+                                <div class="asset-val">$85k</div>
+                            </div>
+                            <div class="asset-card">
+                                <div class="asset-lbl">RENTAL</div>
+                                <div class="asset-val">3 Units</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feeds glass">
+                    <h3>SYSTEM LOG</h3>
+                    <div id="log" class="log-display">
+                        > SYSTEM READY...<br>
+                        > WAITING FOR INPUT...
+                    </div>
+                </div>
+
+            </div>
+
+            <script>
+                // CLOCK
+                setInterval(() => {
+                    document.getElementById('clock').innerText = new Date().toLocaleTimeString();
+                }, 1000);
+
+                // LIVE MONEY
+                let cash = 142502.00;
+                setInterval(() => {
+                    cash += Math.random() * 5;
+                    document.getElementById('revenue').innerText = "$" + cash.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                }, 2000);
+
+                // 3D TILT EFFECT (Only enabled on Desktop via checking generic hover capability)
+                if (window.matchMedia("(hover: hover)").matches) {
+                    const cards = document.querySelectorAll('.glass');
+                    cards.forEach(card => {
+                        card.addEventListener('mousemove', (e) => {
+                            const rect = card.getBoundingClientRect();
+                            const x = e.clientX - rect.left;
+                            const y = e.clientY - rect.top;
+                            card.style.transform = `perspective(1000px) rotateX(${((y - rect.height / 2) / rect.height / 2) * -3}deg) rotateY(${((x - rect.width / 2) / rect.width / 2) * 3}deg)`;
+                        });
+                        card.addEventListener('mouseleave', () => {
+                            card.style.transform = 'none';
+                        });
+                    });
+                }
+            </script>
+</body>
+
+</html>

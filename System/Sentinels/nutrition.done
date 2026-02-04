@@ -1,0 +1,17 @@
+{
+  "agent": "nutrition",
+  "message": "Protocol: 16:8 | Supplements: 4",
+  "status": "ACTIVE",
+  "nutrition": {
+    "calories_target": 2200,
+    "protein_target": 150,
+    "fasting_window": "16:8",
+    "supplements": [
+      "Vitamin D",
+      "Omega-3",
+      "Magnesium",
+      "Creatine"
+    ]
+  },
+  "timestamp": "2026-02-04T01:03:03.059994"
+}

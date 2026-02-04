@@ -1,0 +1,12 @@
+{
+  "agent": "fitness",
+  "message": "Streak: 12 days | Recovery: 85%",
+  "status": "ACTIVE",
+  "fitness": {
+    "weekly_workouts": 4,
+    "recovery_score": 85,
+    "streak_days": 12,
+    "next_workout": "Upper Body"
+  },
+  "timestamp": "2026-02-04T01:03:01.766408"
+}

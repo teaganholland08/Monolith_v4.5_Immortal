@@ -1,0 +1,40 @@
+{
+  "agent": "treasurer",
+  "message": "Assets: $58,287.12 | Optimizations: $4,200.00 available",
+  "status": "GREEN",
+  "accounts": {
+    "checking": 8719.88,
+    "savings": 40598.88,
+    "crypto_vault": 7708.75,
+    "shadow_reserve_xmr": 1259.61
+  },
+  "loopholes": [
+    {
+      "name": "BC Small Business Venture Credit",
+      "type": "TAX_CREDIT",
+      "savings": 4200,
+      "status": "EXPLOITABLE",
+      "action": "Reclassify server hardware as Manufacturing Tooling"
+    },
+    {
+      "name": "Prescribed Rate Loan Strategy",
+      "type": "INCOME_SPLITTING",
+      "savings": 2800,
+      "status": "READY",
+      "action": "Transfer investment income to lower-bracket entity"
+    },
+    {
+      "name": "Digital Nomad Residency",
+      "type": "JURISDICTION",
+      "savings": 15000,
+      "status": "MONITORING",
+      "action": "Establish tax residency in Portugal NHR program"
+    }
+  ],
+  "harvest": {
+    "action": "TAX_LOSS_HARVEST",
+    "amount": 231.26263262219868,
+    "status": "EXECUTED"
+  },
+  "timestamp": "2026-02-04T01:03:09.289472"
+}

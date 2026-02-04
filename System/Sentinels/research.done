@@ -1,0 +1,33 @@
+{
+  "agent": "research",
+  "message": "Found 3 news items, 2 papers",
+  "status": "ACTIVE",
+  "news": [
+    {
+      "topic": "BC Tax Law 2026",
+      "impact": "HIGH",
+      "summary": "New small business credits announced"
+    },
+    {
+      "topic": "RTX 5090 Stock",
+      "impact": "MEDIUM",
+      "summary": "Available at Memory Express"
+    },
+    {
+      "topic": "PQC Standards",
+      "impact": "HIGH",
+      "summary": "NIST finalizes Kyber-1024"
+    }
+  ],
+  "research": [
+    {
+      "title": "Longevity Biomarkers 2026",
+      "relevance": 0.9
+    },
+    {
+      "title": "Tax Optimization Strategies",
+      "relevance": 0.85
+    }
+  ],
+  "timestamp": "2026-02-04T01:03:03.486739"
+}

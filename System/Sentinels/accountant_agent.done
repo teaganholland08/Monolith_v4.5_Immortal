@@ -1,0 +1,15 @@
+{
+  "agent": "accountant_agent",
+  "message": "Tax Due: $1,200.00",
+  "status": "GREEN",
+  "briefing": {
+    "total_income": 91600,
+    "tax_already_paid": 18000,
+    "loophole_savings": 3700,
+    "estimated_balance": 1200.0,
+    "audit_risk": 0.02,
+    "filing_deadline": "2026-04-30"
+  },
+  "loopholes_detected": 3,
+  "timestamp": "2026-02-04T00:52:03.838433"
+}

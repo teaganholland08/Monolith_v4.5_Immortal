@@ -1,0 +1,10 @@
+crewai
+langchain-openai
+langchain-community
+requests
+duckduckgo-search
+streamlit
+folium
+streamlit-folium
+python-dotenv
+psutil

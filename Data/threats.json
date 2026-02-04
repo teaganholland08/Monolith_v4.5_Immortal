@@ -1,0 +1,23 @@
+{
+    "defcon": 5,
+    "system_integrity": 98,
+    "active_threats": [],
+    "last_scan": "2026-01-25 17:00",
+    "safe_havens": [
+        {
+            "country": "Dubai",
+            "tax": "0%",
+            "status": "Likely"
+        },
+        {
+            "country": "Switzerland",
+            "tax": "8%",
+            "status": "Secure"
+        },
+        {
+            "country": "Paraguay",
+            "tax": "0%",
+            "status": "Watchlist"
+        }
+    ]
+}

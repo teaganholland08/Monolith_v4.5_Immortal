@@ -1,0 +1,11 @@
+{
+  "agent": "debug_agent",
+  "message": "Issues: 0 | Agents: 0 errors | Imports: 0 missing",
+  "status": "GREEN",
+  "agent_errors": [],
+  "missing_imports": [],
+  "corrupt_sentinels": [],
+  "db_issues": [],
+  "total_issues": 0,
+  "timestamp": "2026-02-04T01:03:01.324220"
+}

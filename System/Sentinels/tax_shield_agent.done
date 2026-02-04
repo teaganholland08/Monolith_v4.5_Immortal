@@ -1,0 +1,27 @@
+{
+  "agent": "tax_shield_agent",
+  "message": "Write-Offs Found: $19,300.00 | 100% Coverage",
+  "status": "GREEN",
+  "matches": [
+    {
+      "asset": "NVIDIA RTX 5090 (x2)",
+      "rule": "Digital Infrastructure Accelerated Depreciation",
+      "writeoff_amount": 6500,
+      "notes": "Qualifies under Section 45 (Sovereign Compute)"
+    },
+    {
+      "asset": "EnerVenue Battery Array",
+      "rule": "Class 43.2 (Clean Energy)",
+      "writeoff_amount": 12000,
+      "notes": "100% write-off under Green Sovereign Grant"
+    },
+    {
+      "asset": "Starlink Mini Node",
+      "rule": "Digital Infrastructure Accelerated Depreciation",
+      "writeoff_amount": 800,
+      "notes": "Qualifies under Section 45 (Sovereign Compute)"
+    }
+  ],
+  "total_writeoff_potential": 19300.0,
+  "timestamp": "2026-02-04T00:56:10.799864"
+}

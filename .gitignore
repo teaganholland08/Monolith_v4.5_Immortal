@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+
+# Environment & Secrets
+.env
+.venv/
+.vscode/
+vault_key.key
+*.key
+
+# Runtime Data
+System/Agents/Sentinels/*.done
+System/Logs/*.json
+System/Logs/*.db
+Brain/Vault/*.enc
+Brain/Memory/*/

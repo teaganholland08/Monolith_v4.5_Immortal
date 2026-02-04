@@ -1,0 +1,28 @@
+{
+  "agent": "investment",
+  "message": "Portfolio: $64,777.12 (+0.9%)",
+  "status": "ACTIVE",
+  "portfolio": {
+    "total_value": 64777.12,
+    "daily_change": 0.94,
+    "allocations": {
+      "stocks": 50,
+      "bonds": 20,
+      "crypto": 20,
+      "cash": 10
+    }
+  },
+  "signals": [
+    {
+      "asset": "BTC",
+      "signal": "HOLD",
+      "confidence": 0.7
+    },
+    {
+      "asset": "VOO",
+      "signal": "BUY",
+      "confidence": 0.8
+    }
+  ],
+  "timestamp": "2026-02-04T01:03:02.688079"
+}

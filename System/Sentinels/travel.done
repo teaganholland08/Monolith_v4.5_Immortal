@@ -1,0 +1,17 @@
+{
+  "agent": "travel",
+  "message": "Documents: Valid | Trips: 0 planned",
+  "status": "STANDBY",
+  "documents": {
+    "passport": {
+      "expires": "2030-05-15",
+      "status": "VALID"
+    },
+    "nexus": {
+      "expires": "2028-01-01",
+      "status": "VALID"
+    }
+  },
+  "trips": [],
+  "timestamp": "2026-02-04T01:03:09.201707"
+}

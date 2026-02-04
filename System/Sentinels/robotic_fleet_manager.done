@@ -1,0 +1,29 @@
+{
+  "agent": "robotic_fleet_manager",
+  "message": "Fleet Active: 1/3 Units Online",
+  "status": "GREEN",
+  "fleet": [
+    {
+      "id": "UNIT-DREAME-L10",
+      "name": "Dreame Laundry Bot",
+      "status": "DOCKING",
+      "battery": 98,
+      "task": "Washing Cycle Complete"
+    },
+    {
+      "id": "UNIT-SAROS-01",
+      "name": "Saros Solar Rover",
+      "status": "ACTIVE",
+      "battery": 64,
+      "task": "Perimeter Patrol & Weeding"
+    },
+    {
+      "id": "UNIT-G1-HUMANOID",
+      "name": "Unitree G1",
+      "status": "STANDBY",
+      "battery": 100,
+      "task": "Kitchen Sentry Mode"
+    }
+  ],
+  "timestamp": "2026-02-04T01:00:24.119056"
+}

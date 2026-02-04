@@ -1,0 +1,51 @@
+{
+  "agent": "home_orchestrator",
+  "message": "Home: GREEN | Circadian: BLACKOUT_MODE | Devices: 6 online",
+  "status": "GREEN",
+  "devices": {
+    "vacuum_dreame": {
+      "status": "IDLE",
+      "battery": 85,
+      "last_clean": "2h ago"
+    },
+    "mower_ecovacs": {
+      "status": "CHARGING",
+      "battery": 100,
+      "last_run": "1d ago"
+    },
+    "thermostat": {
+      "current": 21,
+      "target": 20,
+      "mode": "AUTO"
+    },
+    "lights": {
+      "mode": "CIRCADIAN",
+      "brightness": 70,
+      "color_temp": 2700
+    },
+    "eight_sleep": {
+      "temp": -2,
+      "heating": true,
+      "recovery_score": 85
+    },
+    "door_locks": {
+      "front": "LOCKED",
+      "back": "LOCKED",
+      "garage": "LOCKED"
+    }
+  },
+  "sensors": {
+    "air_quality": "EXCELLENT",
+    "humidity": 45,
+    "co2_ppm": 450,
+    "water_leak": false,
+    "motion_detected": false
+  },
+  "circadian": {
+    "action": "BLACKOUT_MODE",
+    "lights": "OFF",
+    "screens": "BLOCKED"
+  },
+  "issues": [],
+  "timestamp": "2026-02-04T01:03:02.364159"
+}

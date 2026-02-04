@@ -1,0 +1,24 @@
+{
+  "agent": "legal",
+  "message": "Contracts: 2 | Renewals: 1 pending",
+  "status": "YELLOW",
+  "contracts": [
+    {
+      "name": "Cloud Hosting",
+      "expires": "2026-12-31",
+      "status": "ACTIVE"
+    },
+    {
+      "name": "Insurance",
+      "expires": "2026-06-01",
+      "status": "RENEW_SOON"
+    }
+  ],
+  "compliance": {
+    "bc_privacy_act": true,
+    "gdpr": true,
+    "tax_filing": "CURRENT",
+    "business_license": "VALID"
+  },
+  "timestamp": "2026-02-04T01:03:02.864526"
+}

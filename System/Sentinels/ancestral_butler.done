@@ -1,0 +1,14 @@
+{
+  "agent": "ancestral_butler",
+  "message": "Season: WINTER (Rest/Repair) | Action: BLACKOUT_MODE | State: SLEEP_WINDOW",
+  "data": {
+    "season": "WINTER",
+    "metabolic_state": "SLEEP_WINDOW",
+    "recommendations": [
+      "Prioritize warming, root-based meals (stews, soups)",
+      "Increase Vitamin D supplementation",
+      "Enforce 1800K firelight mode after sunset"
+    ]
+  },
+  "timestamp": "2026-02-04T01:02:46.991878"
+}

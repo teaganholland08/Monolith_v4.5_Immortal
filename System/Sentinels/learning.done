@@ -1,0 +1,20 @@
+{
+  "agent": "learning",
+  "message": "Courses: 2 | Streak: 8 days",
+  "status": "ACTIVE",
+  "learning": {
+    "active_courses": [
+      "Advanced Python",
+      "System Design"
+    ],
+    "completed_today": 45,
+    "streak": 8,
+    "skills_mastered": [
+      "Python",
+      "SQL",
+      "Docker",
+      "AI/ML"
+    ]
+  },
+  "timestamp": "2026-02-04T01:03:02.778398"
+}

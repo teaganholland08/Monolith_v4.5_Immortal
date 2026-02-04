@@ -1,0 +1,34 @@
+{
+  "agent": "inventory_ghost",
+  "message": "Pantry Scan Complete | Ordered 3 items",
+  "status": "GREEN",
+  "scan": {
+    "critical_low": [
+      "Almond Milk",
+      "Grass-Fed Butter",
+      "Sparkling Water"
+    ],
+    "expiring_soon": [
+      "Spinach",
+      "Greek Yogurt"
+    ],
+    "stocked": [
+      "Steak",
+      "Eggs",
+      "Avocados"
+    ]
+  },
+  "orders": [
+    {
+      "vendor": "Whole Foods Drone Delivery",
+      "items": [
+        "Almond Milk",
+        "Grass-Fed Butter",
+        "Sparkling Water"
+      ],
+      "total_est": 45.5,
+      "status": "ORDERED"
+    }
+  ],
+  "timestamp": "2026-02-04T01:00:25.889070"
+}

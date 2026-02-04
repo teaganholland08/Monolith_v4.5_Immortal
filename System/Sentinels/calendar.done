@@ -1,0 +1,30 @@
+{
+  "agent": "calendar",
+  "message": "Today: 2 events | Deadlines: 2 upcoming",
+  "status": "ACTIVE",
+  "today_events": [
+    {
+      "time": "09:30",
+      "event": "Director Briefing",
+      "duration": 15
+    },
+    {
+      "time": "14:00",
+      "event": "Workshop Time",
+      "duration": 180
+    }
+  ],
+  "deadlines": [
+    {
+      "date": "2026-02-28",
+      "task": "Q1 Tax Filing",
+      "priority": "HIGH"
+    },
+    {
+      "date": "2026-03-15",
+      "task": "Insurance Renewal",
+      "priority": "MEDIUM"
+    }
+  ],
+  "timestamp": "2026-02-04T01:02:47.944333"
+}

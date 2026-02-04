@@ -1,0 +1,11 @@
+{
+  "agent": "backup",
+  "message": "Backups: 0 | Latest: NONE",
+  "status": "RED",
+  "backup_status": {
+    "count": 0,
+    "latest": null,
+    "total_size_mb": 0
+  },
+  "timestamp": "2026-02-04T01:02:47.594515"
+}

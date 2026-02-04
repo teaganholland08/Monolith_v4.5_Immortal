@@ -1,0 +1,23 @@
+{
+  "agent": "purge",
+  "message": "Effort Score: 95.5% (3 tasks to automate)",
+  "effort_score": 95.5,
+  "suggestions": [
+    {
+      "task": "Email Triage",
+      "solution": "AI Filter + Auto-Archive",
+      "effort_saved": 15
+    },
+    {
+      "task": "Bill Payment",
+      "solution": "Auto-Pay Setup",
+      "effort_saved": 10
+    },
+    {
+      "task": "Grocery Orders",
+      "solution": "Recurring Instacart",
+      "effort_saved": 30
+    }
+  ],
+  "timestamp": "2026-02-04T01:03:03.396830"
+}

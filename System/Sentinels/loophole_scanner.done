@@ -1,0 +1,29 @@
+{
+  "agent": "loophole_scanner",
+  "message": "Found 2 high-match arbitrage opportunities.",
+  "opportunities": [
+    {
+      "jurisdiction": "Paraguay",
+      "strategy": "Territorial Tax",
+      "benefit": "0% Foreign Income Tax",
+      "match_score": "HIGH",
+      "legal_status": "VERIFIED"
+    },
+    {
+      "jurisdiction": "BC, Canada",
+      "strategy": "Small Business Venture Credit",
+      "benefit": "30% Tax Credit",
+      "match_score": "HIGH",
+      "legal_status": "VERIFIED"
+    },
+    {
+      "jurisdiction": "Portugal",
+      "strategy": "NHR Program",
+      "benefit": "10-Year Tax Holiday",
+      "match_score": "MEDIUM",
+      "legal_status": "VERIFIED"
+    }
+  ],
+  "high_match_count": 2,
+  "timestamp": "2026-02-04T01:03:02.955109"
+}
