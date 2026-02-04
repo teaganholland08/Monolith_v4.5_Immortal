@@ -7,6 +7,7 @@ import os
 import shutil
 import subprocess
 from pathlib import Path
+import zipfile
 from datetime import datetime
 
 class SystemOptimizer:
@@ -63,6 +64,32 @@ class SystemOptimizer:
                 except:
                     pass
         return cleaned
+
+    def rotate_logs(self):
+        """Rotate and compress logs > 10MB"""
+        rotated = 0
+        limit_bytes = 10 * 1024 * 1024  # 10MB
+        
+        for log_file in self.logs_dir.glob("**/*"):
+            if log_file.is_file() and log_file.suffix in ['.json', '.log', '.jsonl', '.txt']:
+                try:
+                    if log_file.stat().st_size > limit_bytes:
+                        # Compress
+                        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+                        archive_name = log_file.with_name(f"{log_file.stem}_{timestamp}.zip")
+                        
+                        with zipfile.ZipFile(archive_name, 'w', zipfile.ZIP_DEFLATED) as zf:
+                            zf.write(log_file, log_file.name)
+                            
+                        # Clear original file but keep it
+                        with open(log_file, 'w') as f:
+                            f.write("") # Truncate
+                            
+                        rotated += 1
+                except Exception as e:
+                    print(f"[OPTIMIZER] Error rotating {log_file.name}: {e}")
+                    pass
+        return rotated
     
     def check_disk_usage(self):
         """Monitor disk space"""
@@ -107,6 +134,7 @@ class SystemOptimizer:
         cache_cleaned = self.clean_python_cache()
         sentinel_cleaned = self.clean_old_sentinels()
         temp_cleaned = self.clean_temp_files()
+        logs_rotated = self.rotate_logs()
         db_optimized = self.optimize_database()
         disk = self.check_disk_usage()
         debloat = self.check_windows_debloat_status()
@@ -119,7 +147,7 @@ class SystemOptimizer:
         elif disk.get("percent_used", 0) > 75:
             status = "YELLOW"
         
-        message = f"Cleaned: {total_cleaned} items | Disk: {disk.get('percent_used', 0)}% used | DBs optimized: {db_optimized}"
+        message = f"Cleaned: {total_cleaned} items | Logs Rotated: {logs_rotated} | Disk: {disk.get('percent_used', 0)}% used"
         
         sentinel_data = {
             "agent": "system_optimizer",
@@ -128,7 +156,8 @@ class SystemOptimizer:
             "cleaning": {
                 "cache_dirs": cache_cleaned,
                 "old_sentinels": sentinel_cleaned,
-                "temp_files": temp_cleaned
+                "temp_files": temp_cleaned,
+                "logs_rotated": logs_rotated
             },
             "disk_usage": disk,
             "databases_optimized": db_optimized,
