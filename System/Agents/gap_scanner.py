@@ -28,7 +28,8 @@ class GapScanner:
             "auditor_agent", "loophole_scanner", "revenue_tracker", "emergency_protocol",
             "purchasing_agent", "master_assistant", "treasurer", "home_orchestrator",
             "voice_interface", "traffic_masker", "gap_scanner", "system_optimizer",
-            "cipher_agent", "tax_shield_agent", "accountant_agent", "fitness_agent", "nutrition_agent"
+            "cipher_agent", "tax_shield_agent", "accountant_agent", "fitness_agent", "nutrition_agent",
+            "investment_agent"
         ]
         
         existing = [f.stem for f in self.agents_dir.glob("*.py")]

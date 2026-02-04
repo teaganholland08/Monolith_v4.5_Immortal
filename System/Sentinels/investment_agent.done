@@ -1,0 +1,30 @@
+{
+  "agent": "investment_agent",
+  "status": "GREEN",
+  "message": "Portfolio: $74,091.55 | Analyzed 1 Assets",
+  "market_data": {
+    "BTC-USD": {
+      "price": 98500.0,
+      "change": 0.025
+    },
+    "ETH-USD": {
+      "price": 6200.0,
+      "change": 0.012
+    },
+    "SPY": {
+      "price": 580.0,
+      "change": -0.005
+    }
+  },
+  "opportunities": [
+    {
+      "asset": "BTC",
+      "price": 98500.0,
+      "monte_carlo_win_prob": 0.5,
+      "expected_roi": 0.0,
+      "status": "DENIED",
+      "reason": "Risk Score Too Low"
+    }
+  ],
+  "timestamp": "2026-02-04T01:22:45.709402"
+}

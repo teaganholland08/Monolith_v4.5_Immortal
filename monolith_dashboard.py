@@ -150,15 +150,19 @@ with w_col1:
 
 with w_col2:
     st.markdown("<div class='pillar-card'>", unsafe_allow_html=True)
-    st.markdown("### 🏦 THE TREASURER")
-    treasury = load_sentinel("treasurer")
-    if treasury:
-        st.write(f"Liquidity: **{treasury.get('message', '').split('|')[0]}**")
-        st.write(f"Optimizations: **{treasury.get('message', '').split('|')[1]}**")
-        with st.expander("Vault Breakdown"):
-            st.json(treasury.get("accounts", {}))
+    st.markdown("### 📈 INVESTMENT AGENT")
+    invest = load_sentinel("investment_agent")
+    if invest:
+        st.write(f"Status: **{invest.get('status')}**")
+        st.write(f"Proposal: **{invest.get('message', '').split('|')[-1]}**")
+        
+        opps = invest.get("opportunities", [])
+        if opps:
+            best = opps[0]
+            st.metric("Top Asset", best['asset'], f"{best['expected_roi']:.1f}% ROI")
+            st.caption(f"Risk Score: {best['monte_carlo_win_prob']*100:.1f}%")
     else:
-        st.warning("Treasurer Offline")
+        st.warning("Investment Agent Offline")
     st.markdown("</div>", unsafe_allow_html=True)
 
 with w_col3:
