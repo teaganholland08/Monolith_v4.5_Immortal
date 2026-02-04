@@ -1,0 +1,24 @@
+{
+  "tax_rules": [
+    {
+      "fact": "RRSP contribution limit is 18% of earned income",
+      "confidence": 0.95,
+      "source": null,
+      "learned": "2026-02-04T01:29:39.499724"
+    },
+    {
+      "fact": "TFSA limit for 2026 is $7,000",
+      "confidence": 0.95,
+      "source": null,
+      "learned": "2026-02-04T01:29:39.500917"
+    }
+  ],
+  "crypto": [
+    {
+      "fact": "Bitcoin halving occurred in April 2024",
+      "confidence": 1.0,
+      "source": null,
+      "learned": "2026-02-04T01:29:39.502983"
+    }
+  ]
+}

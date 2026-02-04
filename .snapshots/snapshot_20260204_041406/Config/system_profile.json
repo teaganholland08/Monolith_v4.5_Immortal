@@ -1,0 +1,6 @@
+{
+  "mode": "LOW_RESOURCE",
+  "max_agents": 10,
+  "local_llm_enabled": false,
+  "gpu_mining_enabled": false
+}

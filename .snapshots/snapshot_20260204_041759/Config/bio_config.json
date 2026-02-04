@@ -1,0 +1,9 @@
+{
+  "director_uuid": "9f4f660e-42c0-4e96-94e2-a8f476db8a30",
+  "privacy_mode": "MAXIMUM",
+  "thresholds": {
+    "hrv_critical": 40,
+    "sleep_critical": 60,
+    "stress_critical": 80
+  }
+}

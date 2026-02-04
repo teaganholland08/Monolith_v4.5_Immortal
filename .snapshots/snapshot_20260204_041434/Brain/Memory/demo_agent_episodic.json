@@ -1,0 +1,39 @@
+[
+  {
+    "id": "28759418b67b",
+    "content": "User asked about tax optimization",
+    "memory_type": "episodic",
+    "timestamp": "2026-02-04T01:29:39.496277",
+    "importance": 0.8,
+    "access_count": 1,
+    "last_accessed": "2026-02-04T01:29:39.546155",
+    "metadata": {
+      "topic": "taxes"
+    },
+    "embedding": null
+  },
+  {
+    "id": "aef45ab1de3e",
+    "content": "Successfully executed investment analysis",
+    "memory_type": "episodic",
+    "timestamp": "2026-02-04T01:29:39.497752",
+    "importance": 0.9,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "topic": "finance"
+    },
+    "embedding": null
+  },
+  {
+    "id": "809ff5f19d09",
+    "content": "System startup completed",
+    "memory_type": "episodic",
+    "timestamp": "2026-02-04T01:29:39.498754",
+    "importance": 0.3,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {},
+    "embedding": null
+  }
+]

@@ -1,0 +1,40 @@
+{
+  "demo_component:ValueError": [
+    {
+      "timestamp": "2026-02-04T01:29:36.580994",
+      "message": "Random failure!",
+      "context": {
+        "attempt": 1,
+        "args": "()"
+      },
+      "resolution": null
+    },
+    {
+      "timestamp": "2026-02-04T01:29:37.583039",
+      "message": "Random failure!",
+      "context": {
+        "attempt": 2,
+        "args": "()"
+      },
+      "resolution": null
+    },
+    {
+      "timestamp": "2026-02-04T01:29:37.584787",
+      "message": "Random failure!",
+      "context": {
+        "attempt": 1,
+        "args": "()"
+      },
+      "resolution": null
+    },
+    {
+      "timestamp": "2026-02-04T01:29:38.595280",
+      "message": "Random failure!",
+      "context": {
+        "attempt": 2,
+        "args": "()"
+      },
+      "resolution": null
+    }
+  ]
+}

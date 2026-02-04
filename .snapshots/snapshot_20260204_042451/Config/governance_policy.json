@@ -1,0 +1,33 @@
+{
+  "high_risk_agents": [
+    "investment_agent",
+    "treasurer",
+    "purchasing_agent"
+  ],
+  "requires_human_approval": {
+    "threshold_amount": 1000.0,
+    "critical_actions": [
+      "execute_trade",
+      "purchase_hardware",
+      "transfer_funds"
+    ]
+  },
+  "data_retention": {
+    "audit_logs_days": 2555,
+    "action_records_days": 365
+  },
+  "risk_thresholds": {
+    "LOW": {
+      "max_transaction": 100
+    },
+    "MEDIUM": {
+      "max_transaction": 1000
+    },
+    "HIGH": {
+      "max_transaction": 10000
+    },
+    "CRITICAL": {
+      "max_transaction": 999999
+    }
+  }
+}
