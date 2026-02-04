@@ -1,7 +1,7 @@
 {
   "agent": "omnidirectional_revenue_scanner",
-  "timestamp": "2026-02-04T03:56:16.385417",
-  "total_opportunities_found": 29,
+  "timestamp": "2026-02-04T13:23:41.094418",
+  "total_opportunities_found": 33,
   "revenue_streams": {
     "digital_products": [
       {
@@ -233,6 +233,14 @@
         "activation": "Register, pass assessments"
       },
       {
+        "platform": "Outlier AI (formerly Remotasks)",
+        "task_type": "RLHF, Coding assistance, writing evaluation",
+        "hourly_rate": "$15-50/hr (Tier dependent)",
+        "monthly_potential": "$500-2000+",
+        "effort": "MEDIUM (requires accuracy)",
+        "activation": "Sign up, pass domain assessments"
+      },
+      {
         "platform": "Appen",
         "task_type": "AI training data, search evaluation",
         "hourly_rate": "$12-20/hr",
@@ -265,6 +273,36 @@
         "monthly_potential": "$100-10000 (scales with audience)",
         "effort": "MEDIUM (consistent content)",
         "activation": "Build audience, offer premium tier"
+      }
+    ],
+    "passive_tech_assets": [
+      {
+        "asset": "AI Voice Licensing",
+        "platform": "ElevenLabs, Resemble AI",
+        "revenue_model": "Royalties per character synthesized",
+        "monthly_potential": "$50-500 (Pure Passive)",
+        "effort": "LOW (Record 30 mins once)",
+        "activation": "Record voice samples, set rate, enable licensing"
+      }
+    ],
+    "outlier_streams": [
+      {
+        "stream": "AI-Generated Stock Music/SFX",
+        "platform": "AudioJungle, Epidemic Sound",
+        "capability": "Generate unique music/sound effects with AI",
+        "revenue_model": "Royalties per download/subscription",
+        "monthly_potential": "$50-300",
+        "effort": "LOW-MEDIUM (generate and upload)",
+        "activation": "Create library, upload to marketplaces"
+      },
+      {
+        "stream": "AI-Powered Language Tutoring Bots",
+        "platform": "Custom apps, Telegram bots",
+        "capability": "Personalized language practice, grammar correction",
+        "revenue_model": "Subscription per user",
+        "monthly_potential": "$100-1000",
+        "effort": "MEDIUM-HIGH (development + marketing)",
+        "activation": "Build bot, market to language learners"
       }
     ]
   },
@@ -400,5 +438,5 @@
     }
   ],
   "status": "READY",
-  "message": "Found 29 revenue opportunities. Realistic potential: $1500-5000 (multiple streams active) by month 3"
+  "message": "Found 33 revenue opportunities. Realistic potential: $1500-5000 (multiple streams active) by month 3"
 }

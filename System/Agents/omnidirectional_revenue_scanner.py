@@ -6,9 +6,15 @@ Revenue Potential: UNLIMITED (starts at $0, scales infinitely)
 """
 
 import json
+import sys
+import io
 from pathlib import Path
 from datetime import datetime
 from typing import List, Dict
+
+# Fix Windows console encoding for emoji output
+if sys.platform == 'win32':
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
 
 class OmnidirectionalRevenueScanner:
     """
