@@ -23,6 +23,7 @@ try:
     from System.Core.governance_engine import get_governance
     from System.Core.comms_protocol import AgentAuthenticator
     from System.Core.hardened_dispatcher import HardenedDispatcher
+    from System.Core.model_interface import get_llm
     CORE_LAYERS_ACTIVE = True
 except ImportError:
     CORE_LAYERS_ACTIVE = False
@@ -70,7 +71,8 @@ class MonolithGraph:
             self.governance = get_governance()
             self.dispatcher = HardenedDispatcher()
             self.auth = AgentAuthenticator("master_assistant")
-            self._log("INIT", "✅ Core Layers Active: Observability, Self-Healing, Memory, Governance, Hardening")
+            self.llm = get_llm()
+            self._log("INIT", "✅ Core Layers Active: Observability, Self-Healing, Memory, Governance, Hardening, LocalAI")
         else:
             self.observability = None
             self.healer = None
@@ -78,6 +80,7 @@ class MonolithGraph:
             self.governance = None
             self.dispatcher = None
             self.auth = None
+            self.llm = None
             
         self.state = AgentState.IDLE
         self.context = {}  # Shared Memory (Blackboard Pattern)
