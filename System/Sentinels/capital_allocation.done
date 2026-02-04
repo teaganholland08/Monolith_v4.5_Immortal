@@ -1,0 +1,52 @@
+{
+  "agent": "capital_allocation",
+  "message": "Capital: $50.00 | Unlocked Stages: 4",
+  "status": "GREEN",
+  "allocation_result": {
+    "new_earnings": 150.0,
+    "capital_remaining": 50.0,
+    "allocations": [
+      {
+        "stage": "DePIN_GPU",
+        "allocated": 0,
+        "expected_daily": "$40-80",
+        "status": "UNLOCKED"
+      },
+      {
+        "stage": "DePIN_Bandwidth",
+        "allocated": 0,
+        "expected_daily": "$1-3",
+        "status": "UNLOCKED"
+      },
+      {
+        "stage": "IP_Arbitrage",
+        "allocated": 0,
+        "expected_daily": "$10-100",
+        "status": "UNLOCKED"
+      },
+      {
+        "stage": "CEX_Swing_Trade",
+        "allocated": 100,
+        "expected_daily": "$5-20",
+        "status": "UNLOCKED"
+      }
+    ],
+    "stages_unlocked": 4
+  },
+  "revenue_projection": {
+    "daily_range": [
+      56,
+      203
+    ],
+    "monthly_range": [
+      1680,
+      6090
+    ],
+    "annual_range": [
+      20440,
+      74095
+    ]
+  },
+  "recommendation": "Continue current operations. Next unlock: Flash_Loan_Arb ($1000 required)",
+  "timestamp": "2026-02-04T02:29:16.722571"
+}
