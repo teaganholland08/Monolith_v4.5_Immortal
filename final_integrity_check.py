@@ -13,7 +13,8 @@ def check_integrity():
     print("       MONOLITH v5.1 INTEGRITY VERIFICATION       ")
     print("==================================================")
     
-    root = Path(__file__).parent.parent.parent
+    # Use script's directory to find project root
+    root = Path(__file__).parent
     agents_dir = root / "System" / "Agents"
     core_dir = root / "System" / "Core"
     
