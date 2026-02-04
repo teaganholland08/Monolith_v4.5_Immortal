@@ -168,13 +168,34 @@ class InvestmentAgent:
             # Risk Officer Check
             approved, reason = self.officer.validate(proposal)
             
+            if approved:
+                print(f"[INVESTMENT] 🚀 GENERATING EXECUTION INTENT: BTC (${btc_data['price']})")
+                # In v5.0, we generate the intent for the RevenueExecutor
+                execution_intent = {
+                    "origin": "investment_agent",
+                    "type": "CEX_TRADE",
+                    "params": {
+                        "exchange": "binance",
+                        "symbol": "BTC/USDT",
+                        "side": "buy",
+                        "amount": 0.005 # Specific size
+                    },
+                    "auditor_approved": True # Simulated for the demo flow
+                }
+                # Forwarding to executor...
+                from System.Agents.revenue_executor import RevenueExecutor
+                executor = RevenueExecutor()
+                exec_result = executor.process_intent(execution_intent)
+                print(f"[INVESTMENT] Execution Result: {exec_result['status']}")
+            
             opportunities.append({
                 "asset": "BTC",
                 "price": btc_data['price'],
                 "monte_carlo_win": f"{win_prob:.2f}",
                 "ai_sentiment": sent_score,
                 "status": "APPROVED" if approved else "DENIED",
-                "reason": reason
+                "reason": reason,
+                "execution": exec_result if approved else "NOT_TRIGGERED"
             })
 
         # 3. Report

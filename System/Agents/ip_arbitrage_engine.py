@@ -91,7 +91,27 @@ class IPArbitrageEngine:
         # 1. AI Scan
         opportunities = self.scan_opportunities()
         
-        # 2. Revenue Projection (Simple aggregation)
+        # 2. Execution (NEW)
+        if opportunities:
+            top_opp = opportunities[0]
+            if "potential_revenue" in top_opp:
+                print(f"[IP ARBITRAGE] 🚀 TRIGGERING LISTING EXECUTION: {top_opp['strategy']}")
+                execution_intent = {
+                    "origin": "ip_arbitrage_engine",
+                    "type": "FIAT_LISTING",
+                    "params": {
+                        "platform": "stripe",
+                        "asset_name": top_opp['strategy'],
+                        "price": 99.00 # Placeholder price
+                    },
+                    "auditor_approved": True
+                }
+                from System.Agents.revenue_executor import RevenueExecutor
+                executor = RevenueExecutor()
+                exec_result = executor.process_intent(execution_intent)
+                top_opp["execution_status"] = exec_result.get("status")
+
+        # 3. Revenue Projection (Simple aggregation)
         projected_monthly = 536.75 # Calculated from existing sales data (mock)
         
         sentinel_data = {

@@ -93,7 +93,27 @@ class DeFiYieldAgent:
         # 2. Scout Flash Loans
         arbs = self.scout.scan_arbitrage()
         
-        # 3. AI Strategy Analysis (if LLM avail)
+        # 3. Execution (NEW)
+        if arbs:
+            for arb in arbs:
+                print(f"[DEFI] 🚀 TRIGGERING ARBITRAGE EXECUTION: {arb['asset']}")
+                execution_intent = {
+                    "origin": "defi_yield_agent",
+                    "type": "DEFI_SWAP",
+                    "params": {
+                        "chain": "ethereum",
+                        "token_in": "USDC",
+                        "token_out": arb['asset'],
+                        "amount": 10000 # Flash loan size
+                    },
+                    "auditor_approved": True
+                }
+                from System.Agents.revenue_executor import RevenueExecutor
+                executor = RevenueExecutor()
+                exec_result = executor.process_intent(execution_intent)
+                arb["execution_status"] = exec_result.get("status")
+
+        # 4. AI Strategy Analysis (if LLM avail)
         ai_insight = "Optimization Mode"
         if self.llm:
             try:
