@@ -6,7 +6,7 @@
     "pulse_detected": true,
     "fall_detected": false,
     "panic_button": false,
-    "last_heartbeat": "2026-02-04T04:26:59.271071"
+    "last_heartbeat": "2026-02-04T04:27:57.423806"
   },
   "threats": {
     "unauthorized_access": false,
@@ -14,5 +14,5 @@
     "physical_intrusion": false
   },
   "actions_taken": [],
-  "timestamp": "2026-02-04T04:26:59.271116"
+  "timestamp": "2026-02-04T04:27:57.423844"
 }

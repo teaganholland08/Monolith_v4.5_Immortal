@@ -100,7 +100,7 @@ class SystemGrowthEngine:
         }
 
     def run(self):
-        print("[GROWTH-ENGINE] 🧠 Analyzing Economic State...")
+        print("[GROWTH-ENGINE] Analyzing Economic State...")
         
         current_capital = self.get_total_capital()
         # For simulation/demo purposes if log is empty, let's assume we started (or user can input)
@@ -122,9 +122,9 @@ class SystemGrowthEngine:
         with open(self.sentinel_dir / "system_growth_engine.done", 'w', encoding='utf-8') as f:
             json.dump(sentinel_data, f, indent=2)
             
-        print(f"[GROWTH-ENGINE] 💰 Current Verified Capital: ${current_capital}")
-        print(f"[GROWTH-ENGINE] 🚦 Stage: {decision['status']}")
-        print(f"[GROWTH-ENGINE] 👉 Directive: {decision['recommended_action']}")
+        print(f"[GROWTH-ENGINE] Current Verified Capital: ${current_capital}")
+        print(f"[GROWTH-ENGINE] Stage: {decision['status']}")
+        print(f"[GROWTH-ENGINE] Directive: {decision['recommended_action']}")
         
         return sentinel_data
 

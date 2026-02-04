@@ -1,0 +1,48 @@
+{
+  "active_courses": [
+    {
+      "name": "Advanced Python for AI Agents",
+      "platform": "Coursera",
+      "progress": 45,
+      "target_completion": "2026-03-01"
+    },
+    {
+      "name": "Post-Quantum Cryptography",
+      "platform": "edX",
+      "progress": 20,
+      "target_completion": "2026-04-15"
+    }
+  ],
+  "completed_courses": [],
+  "reading_list": [
+    {
+      "title": "Designing Data-Intensive Applications",
+      "pages_read": 150,
+      "total_pages": 600
+    },
+    {
+      "title": "The Pragmatic Programmer",
+      "pages_read": 320,
+      "total_pages": 352
+    }
+  ],
+  "skills": {
+    "Python": {
+      "level": 8,
+      "target": 10
+    },
+    "AI/ML": {
+      "level": 7,
+      "target": 10
+    },
+    "Cryptography": {
+      "level": 5,
+      "target": 9
+    },
+    "System Design": {
+      "level": 7,
+      "target": 10
+    }
+  },
+  "learning_hours_this_month": 12
+}

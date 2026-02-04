@@ -1,12 +1,12 @@
 {
   "agent": "treasurer",
-  "message": "Assets: $21,469.97 | Optimizations: $4,200.00 available",
+  "message": "Assets: $43,355.55 | Optimizations: $4,200.00 available",
   "status": "GREEN",
   "accounts": {
-    "checking": 5089.54,
-    "savings": 11645.63,
-    "crypto_vault": 3211.66,
-    "shadow_reserve_xmr": 1523.13
+    "checking": 9092.42,
+    "savings": 29237.54,
+    "crypto_vault": 4469.95,
+    "shadow_reserve_xmr": 555.64
   },
   "loopholes": [
     {
@@ -35,5 +35,5 @@
     "action": "NONE",
     "status": "NO_OPPORTUNITY"
   },
-  "timestamp": "2026-02-04T04:27:09.333689"
+  "timestamp": "2026-02-04T04:27:55.527927"
 }
