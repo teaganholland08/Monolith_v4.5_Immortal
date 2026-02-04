@@ -23,8 +23,12 @@
       "monte_carlo_win": "0.55",
       "ai_sentiment": 0.85,
       "status": "APPROVED",
-      "reason": "APPROVED"
+      "reason": "APPROVED",
+      "execution": {
+        "status": "FAILED",
+        "reason": "CEX Rails Disabled - Check secrets.env"
+      }
     }
   ],
-  "timestamp": "2026-02-04T02:09:27.382471"
+  "timestamp": "2026-02-04T02:22:11.596125"
 }
