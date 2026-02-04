@@ -10,6 +10,7 @@ vault_key.key
 *.key
 
 # Runtime Data
+Data/
 System/Agents/Sentinels/*.done
 System/Logs/*.json
 System/Logs/*.db
