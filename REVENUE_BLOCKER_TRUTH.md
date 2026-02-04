@@ -45,7 +45,7 @@
 ### Current State of Revenue Streams
 
 | Stream | Code Status | API Status | Revenue Potential |
-|--------|------------|------------|-------------------|
+| ------ | ----------- | ---------- | ----------------- |
 | Grass (Bandwidth) | ✅ BUILT | ❌ NO ACCOUNT | $60/month |
 | Bounty Arbitrage | ✅ BUILT | ✅ READY (No API needed) | $300/month |
 | IP Arbitrage | ✅ BUILT | ❌ NO STRIPE KEY | $99/month |

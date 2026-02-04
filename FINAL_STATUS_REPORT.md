@@ -97,7 +97,7 @@
 ### Zero-Capital Streams (READY)
 
 | Stream | Daily | Monthly | Status |
-|--------|-------|---------|--------|
+| ------ | ----- | ------- | ------ |
 | Grass (Bandwidth) | $2.00 | $60 | ⏸️ AWAITING USER SIGNUP |
 | Bounty Arbitrage | $10.00 | $300 | ✅ HUNTING (Agent Active) |
 | IP Arbitrage | $3.30 | $99 | ⏸️ AWAITING STRIPE KEY |
@@ -133,7 +133,7 @@
 
 ### Integrity Check (Just Ran)
 
-```
+```text
 ====================================================
    ✅ SYSTEM INTEGRITY: 100% (IMMORTAL STATUS)
 ====================================================

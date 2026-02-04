@@ -6,7 +6,7 @@ This document explains the **Exponential Economic Engine**.
 
 Starting from $0, the system automatically climbs through revenue stages, using earnings to unlock higher-yield opportunities.
 
-```
+```text
 $0      → DePIN (GPU/Bandwidth)         → $40-80/day
 $100    → CEX Swing Trading              → $5-20/day (additional)
 $1,000  → Flash Loan Arbitrage           → $50-500/day

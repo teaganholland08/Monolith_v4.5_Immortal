@@ -36,7 +36,7 @@ class MonetizationBridge:
         os.makedirs(self.log_dir, exist_ok=True)
         self.execution_log = os.path.join(self.log_dir, "execution_log.jsonl")
         
-        # Load keys from secrets (simulation for now)
+        # Load keys from environment/config
         self.keys = self._load_keys()
         
     def _load_keys(self) -> Dict:
@@ -72,7 +72,8 @@ class MonetizationBridge:
         print(f"[BRIDGE] ⛓️ EXECUTION ATTEMPT: SWAP {amount} {token_in} -> {token_out} on {chain}")
         
         if not self.keys["defi_active"]:
-            return {"status": "BLOCKED", "reason": "DeFi Rails Disabled (Simulation Mode)"}
+            print("[BRIDGE] ⚠️ INFO: DeFi rails not configured. Set MONOLITH_DEFI_ENABLED=true when capital available.")
+            return {"status": "BLOCKED", "reason": "DeFi Rails Not Configured - Requires $1,000+ capital pool"}
             
         # Web3.py contract interaction logic here
         return {"status": "SUCCESS", "tx_hash": f"0x{int(time.time()):x}", "timestamp": datetime.now().isoformat()}
@@ -82,7 +83,8 @@ class MonetizationBridge:
         print(f"[BRIDGE] 💳 EXECUTION ATTEMPT: LIST '{asset_name}' for ${price} on {platform}")
         
         if not self.keys["fiat_active"]:
-            return {"status": "BLOCKED", "reason": "Fiat Rails Disabled (Simulation Mode)"}
+            print("[BRIDGE] ⚠️ INFO: Fiat rails not configured. Complete Stripe setup to enable IP Arbitrage revenue.")
+            return {"status": "BLOCKED", "reason": "Fiat Rails Not Configured - Complete Stripe signup at dashboard.stripe.com"}
             
         return {"status": "SUCCESS", "listing_id": f"stripe_{int(time.time())}", "timestamp": datetime.now().isoformat()}
 

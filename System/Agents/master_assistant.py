@@ -112,9 +112,24 @@ class MonolithGraph:
             self.context["gaps"] = missing_critical
             return "node_manage_labor" # Branch to Labor (Self-Repair)
         
+        
         # 2. Check Directives (User Input or Schedule)
-        # TODO: Hook into Director Schedule
-        self.context["directives"] = ["MAINTENANCE_CYCLE", "WEALTH_CHECK"]
+        current_hour = datetime.now().hour
+        scheduled_directives = []
+        
+        # Daily maintenance cycle (3 AM)
+        if current_hour == 3:
+            scheduled_directives.append("MAINTENANCE_CYCLE")
+        
+        # Wealth check every 6 hours
+        if current_hour % 6 == 0:
+            scheduled_directives.append("WEALTH_CHECK")
+            
+        # Security audit daily (midnight)
+        if current_hour == 0:
+            scheduled_directives.append("SECURITY_AUDIT")
+            
+        self.context["directives"] = scheduled_directives if scheduled_directives else ["IDLE_MONITORING"]
         return "node_execute"
 
     # --- NODE 2: THE EXECUTOR ---
