@@ -3,23 +3,35 @@ MASTER ASSISTANT (GRAPH ORCHESTRATOR) - v5.0 IMMORTAL
 The Sovereign General Manager of Project Monolith.
 Architecture: Directed Cyclic Graph (State Machine)
 Pattern: Plan -> Execute -> Verify -> Reflect
+Core Layers: Observability + Self-Healing + Memory
 """
 import json
 import time
 import subprocess
+import sys
 import threading
 from pathlib import Path
 from datetime import datetime
 from enum import Enum
 from typing import Dict, List, Any
 
+# --- CORE LAYER IMPORTS (Best-in-World 2026) ---
+try:
+    from System.Core.observability_engine import get_observability
+    from System.Core.self_healing_controller import get_healer
+    from System.Core.memory_engine import get_memory
+    CORE_LAYERS_ACTIVE = True
+except ImportError:
+    CORE_LAYERS_ACTIVE = False
+    print("[MASTER] Warning: Core layers not found, running in basic mode.")
+
 # --- CONFIGURATION (The Five Pillars) ---
 PILLARS = {
-    "WEALTH": ["treasurer", "accountant_agent", "loophole_scanner", "revenue_tracker", "tax_shield_agent", "investment_agent"],
-    "SECURITY": ["cipher_agent", "traffic_masker", "emergency_protocol", "auditor_agent", "sentinel_agent"],
+    "WEALTH": ["treasurer", "accountant_agent", "loophole_scanner", "revenue_tracker", "tax_shield_agent", "investment_agent", "ip_arbitrage_engine"],
+    "SECURITY": ["cipher_agent", "traffic_masker", "emergency_protocol", "auditor_agent", "sentinel_agent", "backup_agent"],
     "LABOR": ["ancestral_butler", "home_orchestrator", "purchasing_agent", "purge_agent", "scout_agent"],
-    "HEALTH": ["director_pulse_agent", "fitness_agent", "nutrition_agent", "bio_link_agent"],
-    "DEVELOPMENT": ["system_optimizer", "research_agent", "voice_interface", "gap_scanner"]
+    "HEALTH": ["director_pulse_agent", "fitness_agent", "nutrition_agent", "bio_link_agent", "predictive_concierge"],
+    "DEVELOPMENT": ["system_optimizer", "research_agent", "voice_interface", "gap_scanner", "learning_agent"]
 }
 
 class AgentState(Enum):
@@ -34,6 +46,7 @@ class MonolithGraph:
     """
     The Orchestration Engine (Graph-Based).
     Manages the lifecycle of the 5 Pillars as autonomous sub-graphs.
+    Now with: Observability, Self-Healing, and Memory integration.
     """
     def __init__(self):
         self.root = Path(__file__).parent.parent
@@ -45,6 +58,17 @@ class MonolithGraph:
         # Ensure Infrastructure
         for d in [self.agents_dir, self.sentinel_dir, self.logs_dir, self.memory_dir]:
             d.mkdir(parents=True, exist_ok=True)
+        
+        # --- CORE LAYERS (Best-in-World 2026) ---
+        if CORE_LAYERS_ACTIVE:
+            self.observability = get_observability()
+            self.healer = get_healer()
+            self.memory = get_memory("master_assistant")
+            self._log("INIT", "✅ Core Layers Active: Observability, Self-Healing, Memory")
+        else:
+            self.observability = None
+            self.healer = None
+            self.memory = None
             
         self.state = AgentState.IDLE
         self.context = {}  # Shared Memory (Blackboard Pattern)
