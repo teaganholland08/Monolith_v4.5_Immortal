@@ -32,8 +32,8 @@ except ImportError:
 
 # --- CONFIGURATION (The Five Pillars) ---
 PILLARS = {
-    "WEALTH": ["treasurer", "accountant_agent", "loophole_scanner", "revenue_tracker", "tax_shield_agent", "investment_agent", "ip_arbitrage_engine", "defi_yield_agent", "revenue_executor", "capital_allocation_agent"],
-    "SECURITY": ["cipher_agent", "traffic_masker", "emergency_protocol", "auditor_agent", "sentinel_agent", "backup_agent", "red_team_agent"],
+    "WEALTH": ["treasurer", "accountant_agent", "loophole_scanner", "revenue_tracker", "tax_shield_agent", "investment_agent", "ip_arbitrage_engine", "defi_yield_agent", "revenue_executor", "capital_allocation_agent", "global_arb_scout", "bounty_arbitrageur"],
+    "SECURITY": ["cipher_agent", "traffic_masker", "emergency_protocol", "auditor_agent", "sentinel_agent", "backup_agent", "red_team_agent", "meta_strategy_agent"],
     "LABOR": ["ancestral_butler", "home_orchestrator", "purchasing_agent", "purge_agent", "scout_agent", "hardware_sentinel"],
     "HEALTH": ["director_pulse_agent", "fitness_agent", "nutrition_agent", "bio_link_agent", "predictive_concierge"],
     "DEVELOPMENT": ["system_optimizer", "research_agent", "voice_interface", "gap_scanner", "learning_agent", "knowledge_architect"]

@@ -98,7 +98,7 @@ python System/Agents/ip_arbitrage_engine.py
 ## 📊 Revenue Projection (30 Days, $0 Start)
 
 | Source | Daily | Monthly |
-|--------|-------|---------|
+| :--- | :--- | :--- |
 | io.net (GPU) | $60 | $1,800 |
 | Grass (Bandwidth) | $1 | $30 |
 | IP Arbitrage | - | $297 (3 sales) |

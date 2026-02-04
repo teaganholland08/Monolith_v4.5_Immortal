@@ -9,7 +9,7 @@
 ## ✅ WHAT'S DONE (BY AI)
 
 | Component | Status |
-|-----------|--------|
+| :--- | :--- |
 | 43 Agents Built | ✅ COMPLETE |
 | Monetization Bridge | ✅ COMPLETE |
 | Revenue Executor | ✅ COMPLETE |
@@ -30,7 +30,7 @@
 **Why Blocked:** Requires email verification + human signup  
 **Action Required by YOU:**
 
-```
+```powershell
 1. Go to: https://cloud.io.net/worker
 2. Click "Sign Up"
 3. Verify email
@@ -48,7 +48,7 @@
 **Why Blocked:** Requires Chrome extension install + account creation  
 **Action Required by YOU:**
 
-```
+```powershell
 1. Go to: https://chromewebstore.google.com/detail/grass/ilehaonighjijnmpnagapkhpcdbhclfg
 2. Click "Add to Chrome"
 3. Create account (email only)
@@ -65,7 +65,7 @@
 **Why Blocked:** Requires business/individual verification  
 **Action Required by YOU:**
 
-```
+```powershell
 1. Go to: https://dashboard.stripe.com/register
 2. Complete signup
 3. Verify identity (passport/DL)
@@ -80,7 +80,7 @@
 ## 🤖 WHAT AI CANNOT DO
 
 | Task | Why AI Can't Do It |
-|------|-------------------|
+| :--- | :--- |
 | Create io.net account | Requires human email verification |
 | Install Grass extension | Requires browser with human login |
 | Verify Stripe identity | Requires government ID |
@@ -110,7 +110,7 @@ This will open all signup pages + configure system.
 ## 📊 Expected Timeline
 
 | Day | Revenue | Source |
-|-----|---------|--------|
+| :--- | :--- | :--- |
 | 0 (Today) | $0 | Setup only |
 | 1 | $50 | io.net first payout |
 | 7 | $350 | io.net + Grass |
@@ -139,7 +139,7 @@ AI cannot create accounts that require:
 
 **Choice 1: One-Click Automated**
 
-```
+```powershell
 .\INSTANT_REVENUE_ACTIVATION.bat
 ```
 

@@ -1,0 +1,28 @@
+{
+  "agent": "global_arb_scout",
+  "message": "Found 2 airdrops and 1 digital assets.",
+  "status": "ACTIVE",
+  "airdrops_tracked": [
+    {
+      "project": "HyperLiquid",
+      "type": "STAKING_LESS",
+      "payout_est": "$50-500",
+      "probability": 0.85
+    },
+    {
+      "project": "Berachain",
+      "type": "TESTNET_MONETIZATION",
+      "payout_est": "$200",
+      "probability": 0.7
+    }
+  ],
+  "digital_assets": [
+    {
+      "asset": "monolith-finance.ai",
+      "source": "GoDaddy_Auction",
+      "value_est": "$1200",
+      "current_bid": "$12"
+    }
+  ],
+  "timestamp": "2026-02-04T02:35:08.285103"
+}
