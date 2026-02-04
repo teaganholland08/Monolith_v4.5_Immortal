@@ -62,7 +62,7 @@ def check_integrity():
 
     print("\n==================================================")
     if not missing:
-        print("   ✅ SYSTEM INTEGRITY: 100% (IMMORTAL STATUS)")
+        print("   SYSTEM INTEGRITY: 100% (IMMORTAL STATUS)")
         print("==================================================")
     else:
         print(f"   ⚠️ INTEGRITY COMPROMISED. MISSING: {len(missing)} ITEMS")
