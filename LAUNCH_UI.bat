@@ -1,11 +1,13 @@
 @echo off
-title MONOLITH: DASHBOARD LAUNCHER
-color 0A
-
+title MONOLITH COMMAND CENTER
+color 0B
+echo ==================================================
+echo   LAUNCHING MONOLITH SOVEREIGN INTERFACE
+echo ==================================================
 echo.
-echo [SYSTEM] INITIALIZING INTERFACE...
-echo [SYSTEM] CONNECTING TO LOCAL HOST...
+echo [1/2] Starting TUI (Terminal Interface)...
+start "MONOLITH TUI" python monolith_dashboard_tui.py
 echo.
-
-cd /d C:\Monolith
-streamlit run System\UI\monolith_ui.py
+echo [2/2] Starting Web Dashboard (Streamlit)...
+streamlit run monolith_dashboard.py
+pause

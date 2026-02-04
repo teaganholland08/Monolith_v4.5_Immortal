@@ -124,7 +124,7 @@ with cols[2]:
     st.markdown("<div class='metric-value'>OMEGA</div>", unsafe_allow_html=True)
 with cols[3]:
     st.markdown("<div class='metric-label'>Active Agents</div>", unsafe_allow_html=True)
-    st.markdown("<div class='metric-value'>28/28</div>", unsafe_allow_html=True)
+    st.markdown("<div class='metric-value'>48/48</div>", unsafe_allow_html=True)
 
 st.divider()
 
@@ -136,44 +136,48 @@ w_col1, w_col2, w_col3 = st.columns(3)
 
 with w_col1:
     st.markdown("<div class='pillar-card'>", unsafe_allow_html=True)
-    st.markdown("### 📊 THE ACCOUNTANT")
-    acc_data = load_sentinel("accountant_agent")
-    if acc_data:
-        brief = acc_data.get("briefing", {})
-        st.write(f"CRA/BC Status: **{acc_data.get('message')}**")
-        st.write(f"Audit Risk: `{brief.get('audit_risk', 0)*100:.1f}%`")
-        st.progress(brief.get("audit_risk", 0))
-        st.caption(f"Filing Deadline: {brief.get('filing_deadline')}")
-    else:
-        st.warning("Accountant Offline")
+    st.markdown("### 📊 TREASURY & REVENUE")
+    # Load First Dollar status
+    try:
+        with open("System/Logs/Treasury/first_dollar.json", "r") as f:
+            treasury = json.load(f)
+            total = treasury.get("total_earned", 0.0)
+    except:
+        total = 0.0
+        
+    st.metric("Total Revenue", f"${total:,.2f}")
+    st.caption("Status: REAL_MONEY_MODE")
+    
+    # Check new agents
+    bounty = load_sentinel("bounty_arbitrageur")
+    if bounty:
+        st.write(f"Bounty Scout: **{bounty.get('status')}**")
+        st.caption(f"Targets: {len(bounty.get('bounty_list',[]))}")
     st.markdown("</div>", unsafe_allow_html=True)
 
 with w_col2:
     st.markdown("<div class='pillar-card'>", unsafe_allow_html=True)
-    st.markdown("### 📈 INVESTMENT AGENT")
+    st.markdown("### 📈 INVESTMENT & ARB")
     invest = load_sentinel("investment_agent")
+    arb = load_sentinel("global_arb_scout")
+    
     if invest:
-        st.write(f"Status: **{invest.get('status')}**")
-        st.write(f"Proposal: **{invest.get('message', '').split('|')[-1]}**")
-        
-        opps = invest.get("opportunities", [])
-        if opps:
-            best = opps[0]
-            st.metric("Top Asset", best['asset'], f"{best['expected_roi']:.1f}% ROI")
-            st.caption(f"Risk Score: {best['monte_carlo_win_prob']*100:.1f}%")
-    else:
-        st.warning("Investment Agent Offline")
+        st.write(f"CEX Agent: **{invest.get('status')}**")
+    if arb:
+        st.write(f"Global Arb: **{arb.get('status')}**")
+        st.caption(f"Airdrops: {len(arb.get('airdrops_tracked',[]))}")
     st.markdown("</div>", unsafe_allow_html=True)
 
 with w_col3:
     st.markdown("<div class='pillar-card'>", unsafe_allow_html=True)
-    st.markdown("### 🎯 ARBITRAGE")
-    loophole = load_sentinel("loophole_scanner")
-    if loophole:
-        st.write(f"Active Signals: **{len(loophole.get('loopholes', []))}**")
-        st.success("Targeting: BC Mining Exploration Credit")
+    st.markdown("### 🔄 RECURSIVE SCALING")
+    cap = load_sentinel("capital_allocation")
+    if cap:
+        st.write(f"Strategy: **{cap.get('recommendation', 'Analyzing...')}**")
+        proj = cap.get("revenue_projection", {}).get("daily_range", [0,0])
+        st.write(f"Proj. Daily: `${proj[0]}-${proj[1]}`")
     else:
-        st.info("Scanning for yield...")
+        st.warning("Capital Engine Initializing...")
     st.markdown("</div>", unsafe_allow_html=True)
 
 # 2. SECURITY FACTORY
