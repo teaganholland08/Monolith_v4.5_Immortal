@@ -158,6 +158,17 @@ class MonolithGraph:
             
         for t in threads:
             t.join()
+
+        # --- SPECIAL ENGINES (Added v5.4) ---
+        # These run after the main pillars to utilize their data
+        self._log("EXEC", "  -> Activating Growth & Creative Engines...")
+        self._run_agent_script("system_growth_engine")
+        self._run_agent_script("omnidirectional_revenue_scanner")
+        # Creative engine invocation (script is in subfolder, need special handling or move)
+        # For simplicity in v5.4, we assume it's callable via the same mechanism or we fix the path
+        creative_script = self.agents_dir / "Creators" / "creative_engine.py"
+        if creative_script.exists():
+             subprocess.run(["python", str(creative_script)], capture_output=True, text=True, timeout=60)
             
         self.context["execution_results"] = results
         return "node_verify"
@@ -306,238 +317,9 @@ if __name__ == "__main__":
     briefing = graph.execute_cycle()
     
     # Director Briefing Output
-    print("\\n" + "="*60)
+    print("\n" + "="*60)
     print(f"📊 DIRECTOR BRIEFING [{briefing['timestamp']}]")
     print("="*60)
     for pillar, data in briefing['pillars'].items():
         icon = "✅" if data['status'] == "GREEN" else "❌"
         print(f"{icon} {pillar}: {len(data['alerts'])} Active Agents")
-
-import json
-import os
-import subprocess
-from pathlib import Path
-from datetime import datetime
-
-class MasterAssistant:
-    """
-    The Sovereign AI General Manager.
-    Capabilities:
-    - Spawns new agents when it encounters unknown tasks
-    - Coordinates all existing workers
-    - Provides the 15-minute Director briefing
-    - Executes approved actions autonomously
-    """
-    
-    def __init__(self):
-        self.root = Path(__file__).parent.parent
-        self.agents_dir = self.root / "Agents"
-        self.sentinel_dir = self.root / "Sentinels"
-        self.logs_dir = self.root / "Logs"
-        self.db_path = self.logs_dir / "ledger.db"
-        
-        for d in [self.agents_dir, self.sentinel_dir, self.logs_dir]:
-            d.mkdir(exist_ok=True)
-        
-        self.workers = self._discover_workers()
-        
-    def _discover_workers(self):
-        """Scan for all available agents"""
-        workers = []
-        for f in self.agents_dir.glob("*.py"):
-            if f.name != "master_assistant.py":
-                workers.append(f.stem)
-        return workers
-    
-    def spawn_worker(self, name, task_description):
-        """
-        THE ARCHITECT FUNCTION
-        Creates a new specialized agent from scratch.
-        """
-        print(f"[MASTER] Spawning new worker: {name}")
-        
-        worker_code = f'''"""
-{name.upper()} - Auto-Generated Worker
-Task: {task_description}
-Generated: {datetime.now().isoformat()}
-"""
-import json
-from pathlib import Path
-from datetime import datetime
-
-class {name.replace("_", " ").title().replace(" ", "")}:
-    def __init__(self):
-        self.sentinel_dir = Path(__file__).parent.parent / "Sentinels"
-        self.sentinel_dir.mkdir(exist_ok=True)
-        
-    def run(self):
-        print("[{name.upper()}] Executing task: {task_description}")
-        
-        sentinel_data = {{
-            "agent": "{name}",
-            "message": "Task executed: {task_description}",
-            "timestamp": datetime.now().isoformat()
-        }}
-        
-        with open(self.sentinel_dir / "{name}.done", 'w') as f:
-            json.dump(sentinel_data, f, indent=2)
-        
-        print("[{name.upper()}] Complete.")
-
-if __name__ == "__main__":
-    {name.replace("_", " ").title().replace(" ", "")}().run()
-'''
-        
-        file_path = self.agents_dir / f"{name}.py"
-        with open(file_path, 'w', encoding='utf-8') as f:
-            f.write(worker_code)
-        
-        self.workers.append(name)
-        print(f"[MASTER] Worker '{name}' spawned at {file_path}")
-        return True
-    
-    def run_worker(self, name):
-        """Execute a specific worker"""
-        script = self.agents_dir / f"{name}.py"
-        if not script.exists():
-            # Try alternate names
-            for alt in [f"{name}_agent.py", f"{name}.py"]:
-                if (self.agents_dir / alt).exists():
-                    script = self.agents_dir / alt
-                    break
-        
-        if not script.exists():
-            print(f"[MASTER] Worker '{name}' not found. Spawning...")
-            self.spawn_worker(name, f"Generic task for {name}")
-            script = self.agents_dir / f"{name}.py"
-        
-        try:
-            result = subprocess.run(
-                ["python", str(script)],
-                capture_output=True,
-                text=True,
-                timeout=30
-            )
-            return result.returncode == 0
-        except Exception as e:
-            print(f"[MASTER] Error running {name}: {e}")
-            return False
-    
-    def scan_gaps(self):
-        """
-        THE GAP SCANNER
-        Identifies missing capabilities across the Five Strategic Vertical Pillars.
-        """
-        print("[MASTER] Scanning global system gaps (Five Pillars)...")
-        
-        # 2026 FIVE STRATEGIC VERTICAL PILLARS
-        required_capabilities = [
-            # WEALTH FACTORY
-            ("treasurer", "Manage finances and capital allocation"),
-            ("accountant_agent", "CRA/BC tax optimization and autonomous filing"),
-            ("loophole_scanner", "Find tax and legal arbitrage opportunities"),
-            ("revenue_tracker", "Monitor income and hardware phase triggers"),
-            ("tax_shield_agent", "Continuous 2026 tax law monitoring"),
-            
-            # SECURITY FACTORY
-            ("cipher_agent", "PQC (Kyber-1024) encryption orchestration"),
-            ("traffic_masker", "Metadata and ISP activity obfuscation"),
-            ("emergency_protocol", "Dead Man's Switch and VANISH activation"),
-            ("auditor_agent", "Red-team compliance and sovereign security"),
-            
-            # LABOR FACTORY
-            ("ancestral_butler", "Circadian and seasonal biological protocol enforcement"),
-            ("home_orchestrator", "Smart home and robotic fleet coordination"),
-            ("purchasing_agent", "Automated hardware procurement and inventory"),
-            ("purge_agent", "Manual labor elimination and script automation"),
-            
-            # HEALTH FACTORY
-            ("director_pulse_agent", "2026 Bio-diagnostic and longevity monitoring"),
-            ("fitness_agent", "Adaptive biometric training protocols"),
-            ("nutrition_agent", "AI-optimized metabolic fueling"),
-            
-            # DEVELOPMENT FACTORY
-            ("system_optimizer", "Resource allocation and hardware health"),
-            ("research_agent", "Deep-web intelligence gathering"),
-            ("voice_interface", "Multi-modal command processing"),
-            ("scout_agent", "Hardware upgrade and tech-scouting")
-        ]
-        
-        gaps = []
-        for cap_name, cap_desc in required_capabilities:
-            if cap_name not in self.workers and not (self.agents_dir / f"{cap_name}.py").exists():
-                gaps.append((cap_name, cap_desc))
-        
-        if gaps:
-            print(f"[MASTER] Found {len(gaps)} pillar gaps. Spawning workers...")
-            for name, desc in gaps:
-                self.spawn_worker(name, desc)
-        else:
-            print("[MASTER] All Five Pillars are operational.")
-        
-        return gaps
-    
-    def generate_briefing(self):
-        """
-        THE 15-MINUTE DIRECTOR BRIEFING
-        Aggregates all sentinel data into a single summary.
-        """
-        print("[MASTER] Generating Director Briefing...")
-        
-        briefing = {
-            "timestamp": datetime.now().isoformat(),
-            "sections": {}
-        }
-        
-        # Read all sentinel files
-        for done_file in self.sentinel_dir.glob("*.done"):
-            try:
-                with open(done_file, 'r') as f:
-                    data = json.load(f)
-                briefing["sections"][done_file.stem] = {
-                    "status": data.get("status", "ACTIVE"),
-                    "message": data.get("message", "OK"),
-                    "timestamp": data.get("timestamp", "Unknown")
-                }
-            except:
-                pass
-        
-        # Save briefing
-        with open(self.logs_dir / "director_briefing.json", 'w') as f:
-            json.dump(briefing, f, indent=2)
-        
-        return briefing
-    
-    def execute_all(self):
-        """Run the full autonomous cycle"""
-        print("\n" + "="*60)
-        print("🤖 MASTER ASSISTANT: AUTONOMOUS CYCLE")
-        print("="*60)
-        
-        # 1. Scan for gaps and fill them
-        self.scan_gaps()
-        
-        # 2. Run all workers
-        print("\n[MASTER] Running all workers...")
-        for worker in self.workers:
-            self.run_worker(worker)
-        
-        # 3. Generate briefing
-        briefing = self.generate_briefing()
-        
-        print("\n" + "="*60)
-        print("📋 DIRECTOR BRIEFING")
-        print("="*60)
-        for name, data in briefing.get("sections", {}).items():
-            status = data.get("status", "?")
-            msg = data.get("message", "")[:50]
-            print(f"   {name}: [{status}] {msg}")
-        
-        print("="*60)
-        print("✅ MASTER ASSISTANT: Cycle complete.")
-        
-        return briefing
-
-if __name__ == "__main__":
-    assistant = MasterAssistant()
-    assistant.execute_all()

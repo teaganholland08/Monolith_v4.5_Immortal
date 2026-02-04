@@ -1,10 +1,10 @@
 {
   "agent": "hardware_sentinel",
-  "message": "Power: 93% | Water: 42L | Drones: ACTIVE",
+  "message": "Power: 89% | Water: 42L | Drones: ACTIVE",
   "status": "GREEN",
   "telemetry": {
     "EnerVenue_ESV": {
-      "charge": 93,
+      "charge": 89,
       "cycles": 420,
       "health": "EXCELLENT",
       "temp": "22C"
@@ -21,5 +21,5 @@
       "threat_level": "ZERO"
     }
   },
-  "timestamp": "2026-02-04T01:54:31.679078"
+  "timestamp": "2026-02-04T04:09:51.863490"
 }

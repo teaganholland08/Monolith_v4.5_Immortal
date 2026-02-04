@@ -1,0 +1,131 @@
+{
+    "version": "1.0",
+    "agent_name": "Treasurer",
+    "enabled": true,
+    "autonomy_level": "high",
+    "god_rules": {
+        "financial_guardrails": {
+            "survival_buffer": {
+                "minimum_amount": 20000,
+                "currency": "CAD",
+                "description": "6 months Powell River expenses - CANNOT BE TOUCHED",
+                "locked": true
+            },
+            "vanish_reserve": {
+                "percentage": 0.10,
+                "description": "10% of monthly profit -> Monero/Gold",
+                "auto_convert": true,
+                "destinations": [
+                    "XMR_wallet",
+                    "physical_gold"
+                ]
+            },
+            "loss_limit": {
+                "max_position_size": 0.02,
+                "description": "No single trade > 2% of portfolio",
+                "auto_liquidate_threshold": 0.10,
+                "description2": "Auto-sell if position drops 10%"
+            },
+            "loophole_constraint": {
+                "require_auditor_approval": true,
+                "jurisdictions": [
+                    "BC",
+                    "Canada_Federal"
+                ],
+                "year": 2026,
+                "description": "All tax strategies verified by Auditor Agent"
+            }
+        },
+        "operational_logic": {
+            "autonomous_purchasing": {
+                "max_amount": 2000,
+                "currency": "CAD",
+                "conditions": [
+                    "item_on_upgrade_queue",
+                    "positive_roi OR positive_time_save"
+                ],
+                "requires_approval": false
+            },
+            "silent_mode": {
+                "auto_pay": [
+                    "bills",
+                    "subscriptions",
+                    "maintenance"
+                ],
+                "show_in_briefing": true,
+                "max_amount": 500,
+                "description": "Handle routine expenses silently"
+            },
+            "exception_handling": {
+                "high_risk_threshold": 2000,
+                "pause_and_notify": true,
+                "add_to_pending": true,
+                "description": "Transactions >$2000 require Director approval"
+            }
+        },
+        "vanish_triggers": {
+            "id_nuke": {
+                "triggers": [
+                    "unauthorized_banking_access",
+                    "real_name_search_spike",
+                    "birthday_exposed_2004-07-08"
+                ],
+                "actions": [
+                    "freeze_public_accounts",
+                    "move_to_shadow_ledger",
+                    "activate_alternative_id"
+                ]
+            },
+            "physical_exit": {
+                "enabled": true,
+                "pre_selected_locations": [
+                    "Crown_Land_Quadra_Island",
+                    "Lasqueti_Island_rental",
+                    "Northern_BC_40acre"
+                ],
+                "auto_provisions": true,
+                "payment_method": "alias_account",
+                "description": "Auto-book off-grid location + supplies"
+            }
+        }
+    },
+    "decision_framework": {
+        "transparency": "glass_box",
+        "reasoning_trace": true,
+        "self_reflection": true,
+        "framework": "CrewAI + LangGraph",
+        "description": "Every decision has explainable reasoning"
+    },
+    "integrations": {
+        "banking": {
+            "api": "Plaid",
+            "enabled": false,
+            "note": "Requires user API key"
+        },
+        "crypto": {
+            "exchanges": [
+                "Kraken",
+                "LocalMonero"
+            ],
+            "auto_convert_to_xmr": true
+        },
+        "payment": {
+            "stripe": false,
+            "privacy_com": true,
+            "description": "Use Privacy.com virtual cards for purchases"
+        }
+    },
+    "monitoring": {
+        "scan_frequency": "hourly",
+        "briefing_generation": "daily_7am",
+        "anomaly_detection": true,
+        "spending_analysis": true,
+        "loophole_scanning": true
+    },
+    "security": {
+        "encryption": "Kyber-1024 PQC + AES-256",
+        "data_location": "local_only",
+        "cloud_backup": false,
+        "ledger_path": "System/Logs/ledger.db"
+    }
+}

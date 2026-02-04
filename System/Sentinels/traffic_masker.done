@@ -1,27 +1,27 @@
 {
   "agent": "traffic_masker",
-  "message": "Ghost Mode: ACTIVE | Decoy Traffic: 182MB | PQC: Kyber-1024",
+  "message": "Ghost Mode: ACTIVE | Decoy Traffic: 244MB | PQC: Kyber-1024",
   "status": "GHOST",
   "decoys": [
     {
       "type": "video_stream",
       "destination": "netflix.com",
-      "size_mb": 129
+      "size_mb": 177
     },
     {
       "type": "social_scroll",
       "destination": "reddit.com",
-      "size_mb": 6
+      "size_mb": 9
     },
     {
       "type": "music_stream",
       "destination": "spotify.com",
-      "size_mb": 23
+      "size_mb": 20
     },
     {
       "type": "cloud_sync",
       "destination": "icloud.com",
-      "size_mb": 24
+      "size_mb": 38
     }
   ],
   "pqc_status": {
@@ -30,5 +30,5 @@
     "traffic_encrypted": true,
     "metadata_stripped": true
   },
-  "timestamp": "2026-02-04T01:03:09.115364"
+  "timestamp": "2026-02-04T04:09:48.324334"
 }

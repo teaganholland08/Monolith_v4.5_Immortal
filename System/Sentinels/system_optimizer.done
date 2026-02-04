@@ -1,17 +1,18 @@
 {
   "agent": "system_optimizer",
-  "message": "Cleaned: 1 items | Disk: 29.5% used | DBs optimized: 1",
+  "message": "Cleaned: 1 items | Logs Rotated: 0 | Disk: 29.6% used",
   "status": "GREEN",
   "cleaning": {
     "cache_dirs": 1,
     "old_sentinels": 0,
-    "temp_files": 0
+    "temp_files": 0,
+    "logs_rotated": 0
   },
   "disk_usage": {
     "total_gb": 885.22,
-    "used_gb": 261.28,
-    "free_gb": 623.94,
-    "percent_used": 29.5
+    "used_gb": 261.91,
+    "free_gb": 623.31,
+    "percent_used": 29.6
   },
   "databases_optimized": 1,
   "debloat_status": {
@@ -20,5 +21,5 @@
     "cortana_disabled": true,
     "xbox_removed": true
   },
-  "timestamp": "2026-02-04T01:03:08.843091"
+  "timestamp": "2026-02-04T04:10:00.806725"
 }
