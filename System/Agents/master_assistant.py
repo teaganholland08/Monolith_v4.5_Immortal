@@ -21,6 +21,8 @@ try:
     from System.Core.self_healing_controller import get_healer
     from System.Core.memory_engine import get_memory
     from System.Core.governance_engine import get_governance
+    from System.Core.comms_protocol import AgentAuthenticator
+    from System.Core.hardened_dispatcher import HardenedDispatcher
     CORE_LAYERS_ACTIVE = True
 except ImportError:
     CORE_LAYERS_ACTIVE = False
@@ -29,10 +31,10 @@ except ImportError:
 # --- CONFIGURATION (The Five Pillars) ---
 PILLARS = {
     "WEALTH": ["treasurer", "accountant_agent", "loophole_scanner", "revenue_tracker", "tax_shield_agent", "investment_agent", "ip_arbitrage_engine"],
-    "SECURITY": ["cipher_agent", "traffic_masker", "emergency_protocol", "auditor_agent", "sentinel_agent", "backup_agent"],
-    "LABOR": ["ancestral_butler", "home_orchestrator", "purchasing_agent", "purge_agent", "scout_agent"],
+    "SECURITY": ["cipher_agent", "traffic_masker", "emergency_protocol", "auditor_agent", "sentinel_agent", "backup_agent", "red_team_agent"],
+    "LABOR": ["ancestral_butler", "home_orchestrator", "purchasing_agent", "purge_agent", "scout_agent", "hardware_sentinel"],
     "HEALTH": ["director_pulse_agent", "fitness_agent", "nutrition_agent", "bio_link_agent", "predictive_concierge"],
-    "DEVELOPMENT": ["system_optimizer", "research_agent", "voice_interface", "gap_scanner", "learning_agent"]
+    "DEVELOPMENT": ["system_optimizer", "research_agent", "voice_interface", "gap_scanner", "learning_agent", "knowledge_architect"]
 }
 
 class AgentState(Enum):
@@ -66,12 +68,16 @@ class MonolithGraph:
             self.healer = get_healer()
             self.memory = get_memory("master_assistant")
             self.governance = get_governance()
-            self._log("INIT", "✅ Core Layers Active: Observability, Self-Healing, Memory, Governance")
+            self.dispatcher = HardenedDispatcher()
+            self.auth = AgentAuthenticator("master_assistant")
+            self._log("INIT", "✅ Core Layers Active: Observability, Self-Healing, Memory, Governance, Hardening")
         else:
             self.observability = None
             self.healer = None
             self.memory = None
             self.governance = None
+            self.dispatcher = None
+            self.auth = None
             
         self.state = AgentState.IDLE
         self.context = {}  # Shared Memory (Blackboard Pattern)

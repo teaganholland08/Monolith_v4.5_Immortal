@@ -15,11 +15,12 @@ from datetime import datetime
 # Add generic path for robustness
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-# Import the Graph Orchestrator
+# Import the Graph Orchestrator and Core Components
 try:
     from System.Agents.master_assistant import MonolithGraph
+    from System.Core.hardened_dispatcher import HardenedDispatcher
 except ImportError:
-    print("CRITICAL: Master Assistant Not Found.")
+    print("CRITICAL: Core Components Not Found.")
     sys.exit(1)
 
 # --- 1. THE SOVEREIGNTY DRIVERS ---
@@ -67,8 +68,13 @@ if __name__ == "__main__":
     print("="*60)
     print("👁️ INITIALIZING MONOLITH OMEGA (v5.0 IMMORTAL)")
     print("   -> Architecture: Directed Cyclic Graph (DCG)")
-    print("   -> Security: PQC (Kyber-1024)")
+    print("   -> Security: PQC (Kyber-1024) + Dilithium Comms")
     print("="*60)
+
+    # 0. Safety Handshake
+    security = HardenedDispatcher()
+    if not security.check_safety():
+        sys.exit(1)
     
     # A. Hardware Handshake
     core = SovereignOS()
