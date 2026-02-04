@@ -95,21 +95,30 @@ class IPArbitrageEngine:
         if opportunities:
             top_opp = opportunities[0]
             if "potential_revenue" in top_opp:
-                print(f"[IP ARBITRAGE] 🚀 TRIGGERING LISTING EXECUTION: {top_opp['strategy']}")
+                from System.Agents.auditor_agent import ShadowAuditor
+                auditor = ShadowAuditor()
+                
                 execution_intent = {
                     "origin": "ip_arbitrage_engine",
                     "type": "FIAT_LISTING",
                     "params": {
                         "platform": "stripe",
                         "asset_name": top_opp['strategy'],
-                        "price": 99.00 # Placeholder price
+                        "price": 99.00 
                     },
-                    "auditor_approved": True
+                    "amount": 0, # Listing fee is 0, execution is a sale
+                    "action": "LIST STRATEGY"
                 }
-                from System.Agents.revenue_executor import RevenueExecutor
-                executor = RevenueExecutor()
-                exec_result = executor.process_intent(execution_intent)
-                top_opp["execution_status"] = exec_result.get("status")
+                
+                if auditor.verify_transaction(execution_intent):
+                    print(f"[IP ARBITRAGE] 🚀 TRIGGERING LISTING EXECUTION: {top_opp['strategy']}")
+                    execution_intent["auditor_approved"] = True
+                    from System.Agents.revenue_executor import RevenueExecutor
+                    executor = RevenueExecutor()
+                    exec_result = executor.process_intent(execution_intent)
+                    top_opp["execution_status"] = exec_result.get("status")
+                else:
+                    print(f"[IP ARBITRAGE] 🛑 AUDITOR BLOCKED LISTING")
 
         # 3. Revenue Projection (Simple aggregation)
         projected_monthly = 536.75 # Calculated from existing sales data (mock)

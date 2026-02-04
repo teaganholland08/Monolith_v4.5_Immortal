@@ -168,9 +168,11 @@ class InvestmentAgent:
             # Risk Officer Check
             approved, reason = self.officer.validate(proposal)
             
+            exec_result = "NOT_TRIGGERED"
             if approved:
-                print(f"[INVESTMENT] 🚀 GENERATING EXECUTION INTENT: BTC (${btc_data['price']})")
-                # In v5.0, we generate the intent for the RevenueExecutor
+                from System.Agents.auditor_agent import ShadowAuditor
+                auditor = ShadowAuditor()
+                
                 execution_intent = {
                     "origin": "investment_agent",
                     "type": "CEX_TRADE",
@@ -180,13 +182,24 @@ class InvestmentAgent:
                         "side": "buy",
                         "amount": 0.005 # Specific size
                     },
-                    "auditor_approved": True # Simulated for the demo flow
+                    "amount": 500, # USD Equivalent for Auditor check
+                    "action": "BUY BTC"
                 }
-                # Forwarding to executor...
-                from System.Agents.revenue_executor import RevenueExecutor
-                executor = RevenueExecutor()
-                exec_result = executor.process_intent(execution_intent)
-                print(f"[INVESTMENT] Execution Result: {exec_result['status']}")
+
+                # Real Auditor Check
+                if auditor.verify_transaction(execution_intent):
+                    print(f"[INVESTMENT] 🚀 GENERATING EXECUTION INTENT: BTC (${btc_data['price']})")
+                    execution_intent["auditor_approved"] = True
+                    
+                    # Forwarding to executor...
+                    from System.Agents.revenue_executor import RevenueExecutor
+                    executor = RevenueExecutor()
+                    exec_result = executor.process_intent(execution_intent)
+                    print(f"[INVESTMENT] Execution Result: {exec_result['status']}")
+                else:
+                    print(f"[INVESTMENT] 🛑 AUDITOR BLOCKED TRANSACTION")
+                    approved = False
+                    reason = "Auditor Rejected"
             
             opportunities.append({
                 "asset": "BTC",
@@ -195,7 +208,7 @@ class InvestmentAgent:
                 "ai_sentiment": sent_score,
                 "status": "APPROVED" if approved else "DENIED",
                 "reason": reason,
-                "execution": exec_result if approved else "NOT_TRIGGERED"
+                "execution": exec_result
             })
 
         # 3. Report

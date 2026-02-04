@@ -96,7 +96,9 @@ class DeFiYieldAgent:
         # 3. Execution (NEW)
         if arbs:
             for arb in arbs:
-                print(f"[DEFI] 🚀 TRIGGERING ARBITRAGE EXECUTION: {arb['asset']}")
+                from System.Agents.auditor_agent import ShadowAuditor
+                auditor = ShadowAuditor()
+                
                 execution_intent = {
                     "origin": "defi_yield_agent",
                     "type": "DEFI_SWAP",
@@ -104,14 +106,21 @@ class DeFiYieldAgent:
                         "chain": "ethereum",
                         "token_in": "USDC",
                         "token_out": arb['asset'],
-                        "amount": 10000 # Flash loan size
+                        "amount": 10000 
                     },
-                    "auditor_approved": True
+                    "amount": 10000,
+                    "action": "FLASH LOAN SWAP"
                 }
-                from System.Agents.revenue_executor import RevenueExecutor
-                executor = RevenueExecutor()
-                exec_result = executor.process_intent(execution_intent)
-                arb["execution_status"] = exec_result.get("status")
+
+                if auditor.verify_transaction(execution_intent):
+                    print(f"[DEFI] 🚀 TRIGGERING ARBITRAGE EXECUTION: {arb['asset']}")
+                    execution_intent["auditor_approved"] = True
+                    from System.Agents.revenue_executor import RevenueExecutor
+                    executor = RevenueExecutor()
+                    exec_result = executor.process_intent(execution_intent)
+                    arb["execution_status"] = exec_result.get("status")
+                else:
+                     print(f"[DEFI] 🛑 AUDITOR BLOCKED FLASH LOAN")
 
         # 4. AI Strategy Analysis (if LLM avail)
         ai_insight = "Optimization Mode"

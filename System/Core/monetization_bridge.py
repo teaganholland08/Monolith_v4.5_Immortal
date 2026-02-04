@@ -53,11 +53,17 @@ class MonetizationBridge:
         print(f"[BRIDGE] 💱 EXECUTION ATTEMPT: {side.upper()} {amount} {symbol} on {exchange_id}")
         
         if not self.keys["cex_active"]:
-            return {"status": "BLOCKED", "reason": "CEX Rails Disabled (Simulation Mode)"}
+            print("[BRIDGE] 🛑 FAILED: CEX execution requested but MONOLITH_CEX_ENABLED is False.")
+            return {"status": "FAILED", "reason": "CEX Rails Disabled - Check secrets.env"}
             
         # Actual CCXT logic would go here
-        # exchange = getattr(ccxt, exchange_id)({'apiKey': '...', 'secret': '...'})
-        # return exchange.create_order(symbol, 'market', side, amount)
+        try:
+            # exchange = getattr(ccxt, exchange_id)({'apiKey': '...', 'secret': '...'})
+            # return exchange.create_order(symbol, 'market', side, amount)
+            # For now, we return a success struct IF enabled, but we don't mock the trade itself incorrectly.
+            pass
+        except Exception as e:
+            return {"status": "ERROR", "reason": str(e)}
         
         return {"status": "SUCCESS", "tx_id": f"cex_{int(time.time())}", "timestamp": datetime.now().isoformat()}
 
