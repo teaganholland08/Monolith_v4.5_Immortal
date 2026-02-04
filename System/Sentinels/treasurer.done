@@ -1,12 +1,12 @@
 {
   "agent": "treasurer",
-  "message": "Assets: $37,819.44 | Optimizations: $4,200.00 available",
+  "message": "Assets: $32,191.31 | Optimizations: $4,200.00 available",
   "status": "GREEN",
   "accounts": {
-    "checking": 5184.42,
-    "savings": 22157.47,
-    "crypto_vault": 9273.33,
-    "shadow_reserve_xmr": 1204.22
+    "checking": 5880.05,
+    "savings": 18401.37,
+    "crypto_vault": 6733.47,
+    "shadow_reserve_xmr": 1176.41
   },
   "loopholes": [
     {
@@ -33,8 +33,8 @@
   ],
   "harvest": {
     "action": "TAX_LOSS_HARVEST",
-    "amount": 278.1999649560391,
+    "amount": 202.0042342691614,
     "status": "EXECUTED"
   },
-  "timestamp": "2026-02-04T04:31:33.487716"
+  "timestamp": "2026-02-04T04:39:08.338396"
 }
