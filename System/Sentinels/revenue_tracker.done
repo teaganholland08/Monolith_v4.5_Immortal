@@ -1,12 +1,12 @@
 {
   "agent": "revenue_tracker",
-  "message": "Total Revenue: $177.46",
-  "total_revenue": 177.46,
+  "message": "Total Revenue: $245.64",
+  "total_revenue": 245.64,
   "sources": {
-    "gumroad": 97.34,
-    "medium": 24.68,
-    "affiliate": 2.5,
-    "consulting": 52.95
+    "gumroad": 83.43,
+    "medium": 48.16,
+    "affiliate": 26.33,
+    "consulting": 87.72
   },
   "phases": [
     {
@@ -30,5 +30,5 @@
       "status": "LOCKED"
     }
   ],
-  "timestamp": "2026-02-04T04:27:57.856331"
+  "timestamp": "2026-02-04T04:31:36.068785"
 }

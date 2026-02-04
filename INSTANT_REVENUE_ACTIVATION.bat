@@ -14,6 +14,8 @@ python System\Agents\Creators\creative_engine.py
 echo.
 
 echo [STEP 2] Opening High-Yield Signup Pages...
+start https://outlier.ai/
+start https://elevenlabs.io/voice-library/distribution
 start https://www.dataannotation.tech/
 start https://app.getgrass.io/register
 start https://www.remotasks.com/

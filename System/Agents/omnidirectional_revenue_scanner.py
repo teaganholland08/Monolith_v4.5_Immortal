@@ -30,7 +30,9 @@ class OmnidirectionalRevenueScanner:
             "automation_services": self._scan_automation_services(),
             "affiliate_passive": self._scan_affiliate_streams(),
             "micro_tasks": self._scan_micro_tasks(),
-            "teaching_consulting": self._scan_teaching_consulting()
+            "teaching_consulting": self._scan_teaching_consulting(),
+            "passive_tech_assets": self._scan_passive_tech_assets(),
+            "outlier_streams": self._scan_outlier_ai_streams()
         }
         
         return streams
@@ -282,6 +284,14 @@ class OmnidirectionalRevenueScanner:
                 "activation": "Register, pass assessments"
             },
             {
+                "platform": "Outlier AI (formerly Remotasks)",
+                "task_type": "RLHF, Coding assistance, writing evaluation",
+                "hourly_rate": "$15-50/hr (Tier dependent)",
+                "monthly_potential": "$500-2000+",
+                "effort": "MEDIUM (requires accuracy)",
+                "activation": "Sign up, pass domain assessments"
+            },
+            {
                 "platform": "Appen",
                 "task_type": "AI training data, search evaluation",
                 "hourly_rate": "$12-20/hr",
@@ -291,6 +301,42 @@ class OmnidirectionalRevenueScanner:
             }
         ]
     
+    def _scan_passive_tech_assets(self) -> List[Dict]:
+        """Passive tech assets that generate revenue"""
+        return [
+            {
+                "asset": "AI Voice Licensing",
+                "platform": "ElevenLabs, Resemble AI",
+                "revenue_model": "Royalties per character synthesized",
+                "monthly_potential": "$50-500 (Pure Passive)",
+                "effort": "LOW (Record 30 mins once)",
+                "activation": "Record voice samples, set rate, enable licensing"
+            }
+        ]
+
+    def _scan_outlier_ai_streams(self) -> List[Dict]:
+        """Unique or less common AI-powered revenue streams"""
+        return [
+            {
+                "stream": "AI-Generated Stock Music/SFX",
+                "platform": "AudioJungle, Epidemic Sound",
+                "capability": "Generate unique music/sound effects with AI",
+                "revenue_model": "Royalties per download/subscription",
+                "monthly_potential": "$50-300",
+                "effort": "LOW-MEDIUM (generate and upload)",
+                "activation": "Create library, upload to marketplaces"
+            },
+            {
+                "stream": "AI-Powered Language Tutoring Bots",
+                "platform": "Custom apps, Telegram bots",
+                "capability": "Personalized language practice, grammar correction",
+                "revenue_model": "Subscription per user",
+                "monthly_potential": "$100-1000",
+                "effort": "MEDIUM-HIGH (development + marketing)",
+                "activation": "Build bot, market to language learners"
+            }
+        ]
+
     def _scan_teaching_consulting(self) -> List[Dict]:
         """Knowledge monetization"""
         return [

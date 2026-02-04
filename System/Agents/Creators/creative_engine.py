@@ -71,14 +71,25 @@ class CreativeEngine:
             })
         return concepts
 
+    def generate_voice_specs(self) -> List[Dict]:
+        """Generate specs for Voice Cloning Passive Income"""
+        return [{
+            "type": "VOICE_CLONE",
+            "platform": "ElevenLabs",
+            "action": "Record 30min high-quality sample",
+            "niche": "Narrative/Audiobook Voice (Calm, Deep)",
+            "potential_value": "$0.05 per 1000 chars (Passive Royalties)"
+        }]
+
     def run_production_cycle(self):
         print("[CREATIVE-ENGINE] 🎨 Starting Creative Production Cycle...")
         
         music = self.generate_music_specs(5)
         art = self.generate_art_specs(5)
         apps = self.generate_app_concepts(3)
+        voice = self.generate_voice_specs()
         
-        production_queue = music + art + apps
+        production_queue = music + art + apps + voice
         
         # In a fully connected system w/ APIs, we would call the generation endpoints here.
         # For now (v5.4), we queue them as "Ready for Execution"
